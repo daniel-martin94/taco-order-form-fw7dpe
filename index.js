@@ -7,7 +7,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: 'React'
+      name: 'React',
+      base_layer: null,
+      mixins: null,
+      condiments: null,
+      seasonings: null,
     };
   }
 

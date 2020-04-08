@@ -1,23 +1,25 @@
-[
-    {
-        "id": "fresh_corn_tortillas",
-        "name": "Fresh Corn Tortillas"
-    },
-    {
-        "id": "hard_corn_shells_traditional_us",
-        "name": "Hard Corn Shells (Traditional; US)"
-    },
-    {
-        "id": "naan",
-        "name": "naan"
-    },
-    {
-        "id": "flour_Tortillas",
-        "name": "Flour tortillas"
-    },
-    {
-        "id": "spinach_Tortillas",
-        "name": "Spinach tortillas",
-        "price": 1.0
-    }
-]
+{
+  "shells": [
+      {
+          "id": "fresh_corn_tortillas",
+          "name": "Fresh Corn Tortillas"
+      },
+      {
+          "id": "hard_corn_shells_traditional_us",
+          "name": "Hard Corn Shells (Traditional; US)"
+      },
+      {
+          "id": "naan",
+          "name": "naan"
+      },
+      {
+          "id": "flour_Tortillas",
+          "name": "Flour tortillas"
+      },
+      {
+          "id": "spinach_Tortillas",
+          "name": "Spinach tortillas",
+          "price": 1.0
+      }
+  ]
+}

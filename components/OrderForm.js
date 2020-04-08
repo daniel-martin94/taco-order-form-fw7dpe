@@ -4,7 +4,11 @@ import { Button, Container, Header, Divider, Grid } from "semantic-ui-react";
 
 
 const OrderForm = (props) => {
-  <Header>Tacos!!!</Header>
+  console.log(props)
+  return (
+    <Container>
+    </Container>
+  )
 }
 
 export default OrderForm

@@ -1,42 +1,162 @@
 [
-    "Soyrizo",
-    "Roasted Butternut Squash",
-    "Baja Beer Battered Fish",
-    "Carnitas",
-    "Chopped Steak",
-    "bellpepper",
-    "Crock Pot Pulled Pork",
-    "onion",
-    "Chorizo",
-    "Garlic Black Beans",
-    "Marinated Portobello Mushroom",
-    "Lightly Seasoned Beef",
-    "Insane Garlic Ground Turkey",
-    "Red Cabbage Filling",
-    "Moroccan Lamb",
-    "Overly Seasoned Ground Beef",
-    "Chopped Pork",
-    "Corn and Black Beans",
-    "Baked Tilapia",
-    "Basic Shredded Chicken",
-    "Asian Style Tofu or Pork Marinade",
-    "Ground Beef (Traditional; US)",
-    "Slow-Cooked Salsa Verde Chicken",
-    "Zucchini and Corn Filling",
-    "Spaghetti Squash",
-    "Better Than Powder Groundbeef",
-    "Swiss Chard",
-    "Delengua (Beef Tongue)",
-    "North Carolina Battered Catfish",
-    "Moroccan Lamb",
-    "Taco de rajas poblanas",
-    "Bulgar Black Bean Filling",
-    "Slow Cooked No-Bean Chili",
-    "@deezthugs' Smokey Turkey Tacos",
-    "Boiled Ground Beef",
-    "Pork Shoulder With Chile And Onions",
-    "Puerco Pibil",
-    "Seasoned Lentils",
-    "Fat-Poached Carnitas",
-    "Pepper Tempeh"
+    {
+        "id": "soyrizo",
+        "name": "Soyrizo"
+    },
+    {
+        "id": "roasted_butternut_squash",
+        "name": "Roasted Butternut Squash"
+    },
+    {
+        "id": "baja_beer_battered_fish",
+        "name": "Baja Beer Battered Fish"
+    },
+    {
+        "id": "carnitas",
+        "name": "Carnitas"
+    },
+    {
+        "id": "chopped_steak",
+        "name": "Chopped Steak"
+    },
+    {
+        "id": "bellpepper",
+        "name": "bellpepper"
+    },
+    {
+        "id": "crock_pot_pulled_pork",
+        "name": "Crock Pot Pulled Pork"
+    },
+    {
+        "id": "onion",
+        "name": "onion"
+    },
+    {
+        "id": "chorizo",
+        "name": "Chorizo"
+    },
+    {
+        "id": "garlic_black_beans",
+        "name": "Garlic Black Beans"
+    },
+    {
+        "id": "marinated_portobello_mushroom",
+        "name": "Marinated Portobello Mushroom"
+    },
+    {
+        "id": "lightly_seasoned_beef",
+        "name": "Lightly Seasoned Beef"
+    },
+    {
+        "id": "insane_garlic_ground_turkey",
+        "name": "Insane Garlic Ground Turkey"
+    },
+    {
+        "id": "red_cabbage_filling",
+        "name": "Red Cabbage Filling"
+    },
+    {
+        "id": "moroccan_lamb",
+        "name": "Moroccan Lamb"
+    },
+    {
+        "id": "overly_seasoned_ground_beef",
+        "name": "Overly Seasoned Ground Beef"
+    },
+    {
+        "id": "chopped_pork",
+        "name": "Chopped Pork"
+    },
+    {
+        "id": "corn_and_black_beans",
+        "name": "Corn and Black Beans"
+    },
+    {
+        "id": "baked_tilapia",
+        "name": "Baked Tilapia"
+    },
+    {
+        "id": "basic_shredded_chicken",
+        "name": "Basic Shredded Chicken"
+    },
+    {
+        "id": "asian_style_tofu_or_pork_marinade",
+        "name": "Asian Style Tofu or Pork Marinade"
+    },
+    {
+        "id": "ground_beef_traditional_us",
+        "name": "Ground Beef (Traditional; US)"
+    },
+    {
+        "id": "slow_cooked_salsa_verde_chicken",
+        "name": "Slow-Cooked Salsa Verde Chicken"
+    },
+    {
+        "id": "zucchini_and_corn_filling",
+        "name": "Zucchini and Corn Filling"
+    },
+    {
+        "id": "spaghetti_squash",
+        "name": "Spaghetti Squash"
+    },
+    {
+        "id": "better_than_powder_groundbeef",
+        "name": "Better Than Powder Groundbeef"
+    },
+    {
+        "id": "swiss_chard",
+        "name": "Swiss Chard"
+    },
+    {
+        "id": "delengua_beef_tongue",
+        "name": "Delengua (Beef Tongue)"
+    },
+    {
+        "id": "north_carolina_battered_catfish",
+        "name": "North Carolina Battered Catfish"
+    },
+    {
+        "id": "moroccan_lamb",
+        "name": "Moroccan Lamb"
+    },
+    {
+        "id": "taco_de_rajas_poblanas",
+        "name": "Taco de rajas poblanas"
+    },
+    {
+        "id": "bulgar_black_bean_filling",
+        "name": "Bulgar Black Bean Filling"
+    },
+    {
+        "id": "slow_cooked_no_bean_chili",
+        "name": "Slow Cooked No-Bean Chili"
+    },
+    {
+        "id": "deezthugs_smokey_turkey_tacos",
+        "name": "@deezthugs' Smokey Turkey Tacos"
+    },
+    {
+        "id": "boiled_ground_beef",
+        "name": "Boiled Ground Beef"
+    },
+    {
+        "id": "pork_shoulder_with_chile_and_onions",
+        "name": "Pork Shoulder With Chile And Onions"
+    },
+    {
+        "id": "puerco_pibil",
+        "name": "Puerco Pibil"
+    },
+    {
+        "id": "seasoned_lentils",
+        "name": "Seasoned Lentils"
+    },
+    {
+        "id": "fat_poached_carnitas",
+        "name": "Fat-Poached Carnitas"
+    },
+    {
+        "id": "pepper_tempeh",
+        "name": "Pepper Tempeh"
+    }
 ]

@@ -1,0 +1,54 @@
+[
+    {
+        "id": "sweet_potato_and_apple_hash",
+        "name": "Sweet Potato and Apple Hash"
+    },
+    {
+        "id": "potato_hash",
+        "name": "Potato Hash"
+    },
+    {
+        "id": "traditional_taco_mixins",
+        "name": "Traditional Taco Mixins"
+    },
+    {
+        "id": "green_chile_cabbage_salad",
+        "name": "Green Chile Cabbage Salad"
+    },
+    {
+        "id": "tomatoes_traditional_us",
+        "name": "Tomatoes (Traditional; US)"
+    },
+    {
+        "id": "corn_salad",
+        "name": "Corn Salad"
+    },
+    {
+        "id": "cheese_traditional_us",
+        "name": "Cheese (Traditional; US)"
+    },
+    {
+        "id": "lettuce_traditional_us",
+        "name": "Lettuce (Traditional; US)"
+    },
+    {
+        "id": "veggies_for_fish_tacos",
+        "name": "Veggies for Fish Tacos"
+    },
+    {
+        "id": "shredded_brussels_sprouts",
+        "name": "Shredded Brussels Sprouts"
+    },
+    {
+        "id": "drunken_green_beans",
+        "name": "Drunken Green Beans"
+    },
+    {
+        "id": "pomegranate_seeds",
+        "name": "Pomegranate Seeds"
+    },
+    {
+        "id": "mushroom_wasabi_salad",
+        "name": "Mushroom Wasabi Salad"
+    }
+]

@@ -1,0 +1,134 @@
+[
+    {
+        "id": "mango_avocado_salsa",
+        "name": "Mango Avocado Salsa"
+    },
+    {
+        "id": "chipotle_sauce",
+        "name": "Chipotlé Sauce"
+    },
+    {
+        "id": "phoning_it_in_pico_de_gallo",
+        "name": "Phoning it in Pico de Gallo"
+    },
+    {
+        "id": "baja_white_sauce",
+        "name": "Baja White Sauce"
+    },
+    {
+        "id": "guacamole",
+        "name": "Guacamole"
+    },
+    {
+        "id": "salsa_sauce",
+        "name": "Salsa Sauce"
+    },
+    {
+        "id": "asian_pickled_vegetables",
+        "name": "Asian Pickled Vegetables"
+    },
+    {
+        "id": "beet_salsa",
+        "name": "Beet Salsa"
+    },
+    {
+        "id": "vindaloo_sauce",
+        "name": "Vindaloo Sauce"
+    },
+    {
+        "id": "simple_salsa_verde",
+        "name": "Simple Salsa Verde"
+    },
+    {
+        "id": "black_olives",
+        "name": "Black Olives"
+    },
+    {
+        "id": "guacamole_simple",
+        "name": "Guacamole (Simple)"
+    },
+    {
+        "id": "pickled_red_onions",
+        "name": "Pickled Red Onions"
+    },
+    {
+        "id": "roasted_tomatillo_and_mushroom_sauce",
+        "name": "Roasted Tomatillo and Mushroom Sauce"
+    },
+    {
+        "id": "sour_cream",
+        "name": "Sour Cream"
+    },
+    {
+        "id": "cilantro_and_onion",
+        "name": "Cilantro and Onion"
+    },
+    {
+        "id": "lime",
+        "name": "Lime"
+    },
+    {
+        "id": "creamy_mustard_sauce",
+        "name": "Creamy Mustard Sauce"
+    },
+    {
+        "id": "salsa_de_chile_de_arbol",
+        "name": "Salsa de chile de árbol"
+    },
+    {
+        "id": "yogurt",
+        "name": "Yogurt"
+    },
+    {
+        "id": "cashew_cheeze",
+        "name": "Cashew Cheeze"
+    },
+    {
+        "id": "garlic_lime_sauce",
+        "name": "Garlic Lime Sauce"
+    },
+    {
+        "id": "mango_lime_salsa",
+        "name": "Mango Lime Salsa"
+    },
+    {
+        "id": "salsa_de_aguacate",
+        "name": "Salsa de Aguacate"
+    },
+    {
+        "id": "asian_cabbage_slaw",
+        "name": "Asian Cabbage Slaw"
+    },
+    {
+        "id": "chipotle_pineapple_sauce",
+        "name": "Chipotle Pineapple Sauce"
+    },
+    {
+        "id": "above_average_tomato_sauce",
+        "name": "Above Average Tomato Sauce"
+    },
+    {
+        "id": "homemade_kimchi",
+        "name": "Homemade Kimchi"
+    },
+    {
+        "id": "cranberry_salsa",
+        "name": "Cranberry Salsa"
+    },
+    {
+        "id": "mango_avocado_pico",
+        "name": "Mango Avocado Pico"
+    },
+    {
+        "id": "european_sour_cream",
+        "name": "European Sour Cream"
+    },
+    {
+        "id": "charred_corn",
+        "name": "charred corn"
+    },
+    {
+        "id": "onions_and_cilantro",
+        "name": "Onions and Cilantro"
+    }
+]

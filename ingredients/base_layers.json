@@ -1,162 +1,202 @@
 [
     {
         "id": "soyrizo",
-        "name": "Soyrizo"
+        "name": "Soyrizo",
+        "price": 100
     },
     {
         "id": "roasted_butternut_squash",
-        "name": "Roasted Butternut Squash"
+        "name": "Roasted Butternut Squash",
+        "price": 0.50
     },
     {
         "id": "baja_beer_battered_fish",
-        "name": "Baja Beer Battered Fish"
+        "name": "Baja Beer Battered Fish",
+        "price": 4.0
     },
     {
         "id": "carnitas",
-        "name": "Carnitas"
+        "name": "Carnitas",
+        "price": 2.0
     },
     {
         "id": "chopped_steak",
-        "name": "Chopped Steak"
+        "name": "Chopped Steak",
+        "price": 3.50
     },
     {
         "id": "bellpepper",
-        "name": "bellpepper"
+        "name": "bellpepper",
+        "price": 0
     },
     {
         "id": "crock_pot_pulled_pork",
-        "name": "Crock Pot Pulled Pork"
+        "name": "Crock Pot Pulled Pork",
+        "price": 1.0
+    },
+    {
+        "id": "al_pastor",
+        "name": "Al Pastor",
+        "price": 2.25
     },
     {
         "id": "onion",
-        "name": "onion"
+        "name": "onion",
+        "price": 0
     },
     {
         "id": "chorizo",
-        "name": "Chorizo"
+        "name": "Chorizo",
+        "price": 2.0
     },
     {
         "id": "garlic_black_beans",
-        "name": "Garlic Black Beans"
+        "name": "Garlic Black Beans",
+        "price": 0
     },
     {
         "id": "marinated_portobello_mushroom",
-        "name": "Marinated Portobello Mushroom"
+        "name": "Marinated Portobello Mushroom",
+        "price": 3.0
     },
     {
         "id": "lightly_seasoned_beef",
-        "name": "Lightly Seasoned Beef"
+        "name": "Lightly Seasoned Beef",
+        "price": 2.0
     },
     {
         "id": "insane_garlic_ground_turkey",
-        "name": "Insane Garlic Ground Turkey"
+        "name": "Insane Garlic Ground Turkey",
+        "price": 
     },
     {
         "id": "red_cabbage_filling",
-        "name": "Red Cabbage Filling"
-    },
-    {
-        "id": "moroccan_lamb",
-        "name": "Moroccan Lamb"
+        "name": "Red Cabbage Filling",
+        "price": 0
     },
     {
         "id": "overly_seasoned_ground_beef",
-        "name": "Overly Seasoned Ground Beef"
+        "name": "Overly Seasoned Ground Beef",
+        "price": 3.0
     },
     {
         "id": "chopped_pork",
-        "name": "Chopped Pork"
+        "name": "Chopped Pork",
+        "price": 3.0
     },
     {
         "id": "corn_and_black_beans",
-        "name": "Corn and Black Beans"
+        "name": "Corn and Black Beans",
+        "price": 0
     },
     {
         "id": "baked_tilapia",
-        "name": "Baked Tilapia"
+        "name": "Baked Tilapia",
+        "price": 1.0
     },
     {
         "id": "basic_shredded_chicken",
-        "name": "Basic Shredded Chicken"
+        "name": "Basic Shredded Chicken",
+        "price": 1.50
     },
     {
         "id": "asian_style_tofu_or_pork_marinade",
-        "name": "Asian Style Tofu or Pork Marinade"
+        "name": "Asian Style Tofu or Pork Marinade",
+        "price": 2.50
     },
     {
         "id": "ground_beef_traditional_us",
-        "name": "Ground Beef (Traditional; US)"
+        "name": "Ground Beef (Traditional; US)",
+        "price": 2.25
     },
     {
         "id": "slow_cooked_salsa_verde_chicken",
-        "name": "Slow-Cooked Salsa Verde Chicken"
+        "name": "Slow-Cooked Salsa Verde Chicken",
+        "price": 2.50
     },
     {
         "id": "zucchini_and_corn_filling",
-        "name": "Zucchini and Corn Filling"
+        "name": "Zucchini and Corn Filling",
+        "price": 0.25
     },
     {
         "id": "spaghetti_squash",
-        "name": "Spaghetti Squash"
+        "name": "Spaghetti Squash",
+        "price": 0.50
     },
     {
         "id": "better_than_powder_groundbeef",
-        "name": "Better Than Powder Groundbeef"
+        "name": "Better Than Powder Groundbeef",
+        "price": 1.0
     },
     {
         "id": "swiss_chard",
-        "name": "Swiss Chard"
+        "name": "Swiss Chard",
+        "price": 0.75
     },
     {
         "id": "delengua_beef_tongue",
-        "name": "Delengua (Beef Tongue)"
+        "name": "Delengua (Beef Tongue)",
+        "price": 2.50
     },
     {
         "id": "north_carolina_battered_catfish",
-        "name": "North Carolina Battered Catfish"
+        "name": "North Carolina Battered Catfish",
+        "price": 4.0
     },
     {
         "id": "moroccan_lamb",
-        "name": "Moroccan Lamb"
+        "name": "Moroccan Lamb",
+        "price": 3.0
     },
     {
         "id": "taco_de_rajas_poblanas",
-        "name": "Taco de rajas poblanas"
+        "name": "Taco de rajas poblanas",
+        "price": 0.25
     },
     {
         "id": "bulgar_black_bean_filling",
-        "name": "Bulgar Black Bean Filling"
+        "name": "Bulgar Black Bean Filling",
+        "price": 1.0
     },
     {
         "id": "slow_cooked_no_bean_chili",
-        "name": "Slow Cooked No-Bean Chili"
+        "name": "Slow Cooked No-Bean Chili",
+        "price": 0.75
     },
     {
         "id": "deezthugs_smokey_turkey_tacos",
-        "name": "@deezthugs' Smokey Turkey Tacos"
+        "name": "@deezthugs' Smokey Turkey Tacos",
+        "price": 2.0
     },
     {
         "id": "boiled_ground_beef",
-        "name": "Boiled Ground Beef"
+        "name": "Boiled Ground Beef",
+        "price": 1.0
     },
     {
         "id": "pork_shoulder_with_chile_and_onions",
-        "name": "Pork Shoulder With Chile And Onions"
+        "name": "Pork Shoulder With Chile And Onions",
+        "price": 3.0
     },
     {
         "id": "puerco_pibil",
-        "name": "Puerco Pibil"
+        "name": "Puerco Pibil",
+        "price": 0.50
     },
     {
         "id": "seasoned_lentils",
-        "name": "Seasoned Lentils"
+        "name": "Seasoned Lentils",
+        "price": 0.50
     },
     {
         "id": "fat_poached_carnitas",
-        "name": "Fat-Poached Carnitas"
+        "name": "Fat-Poached Carnitas",
+        "price": 2.0
     },
     {
         "id": "pepper_tempeh",
-        "name": "Pepper Tempeh"
+        "name": "Pepper Tempeh",
+        "price": 0.50
     }
 ]

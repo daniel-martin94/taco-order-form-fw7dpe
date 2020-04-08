@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
+import OrderForm from './components/OrderForm';
+import { Button, Container, Header, Divider, Grid } from "semantic-ui-react";
 import './style.css';
 
 class App extends Component {
@@ -12,6 +14,7 @@ class App extends Component {
       mixins: null,
       condiments: null,
       seasonings: null,
+      order: []
     };
   }
 
@@ -19,6 +22,8 @@ class App extends Component {
     return (
       <div>
         <Hello name={this.state.name} />
+        <OrderForm />
+     
         <p>
           Start editing to see some magic happen :)
         </p>

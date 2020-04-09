@@ -12,13 +12,13 @@ import { condiments } from './ingredients/condiments.json'
 import './style.css';
 
 function App() {
-  const initialIngredients = [{
-    'shells': shells,
-    'base_layers': base_layers,
-    'seasonings': seasonings,
-    'mixins': mixins,
-    'condiments':condiments,
-  }]
+  // const initialIngredients = [{
+  //   'shells': shells,
+  //   'base_layers': base_layers,
+  //   'seasonings': seasonings,
+  //   'mixins': mixins,
+  //   'condiments':condiments,
+  // }]
   const [orderState, toggleOrder] = useState(false);
   const [orders, setOrders] = useState([])
   const [ingredients, setIngredients] = useState({'shells': shells})

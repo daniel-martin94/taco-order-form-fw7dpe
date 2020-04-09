@@ -1,3 +1,5 @@
+{
+"condiments":
 [
     {
         "id": "mango_avocado_salsa",
@@ -132,3 +134,4 @@
         "name": "Onions and Cilantro"
     }
 ]
+}

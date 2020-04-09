@@ -1,3 +1,5 @@
+{
+"mixins":
 [
     {
         "id": "sweet_potato_and_apple_hash",
@@ -52,3 +54,4 @@
         "name": "Mushroom Wasabi Salad"
     }
 ]
+}

@@ -1,4 +1,5 @@
-[
+{
+"seasonings":[
     {
         "id": "mahi_mahi_rub",
         "name": "Mahi Mahi Rub"
@@ -40,3 +41,4 @@
         "name": "Homemade Sriracha"
     }
 ]
+}

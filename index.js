@@ -36,7 +36,7 @@ function App() {
       <Header as="h2">{title}</Header>
       <Grid columns={2} stackable>
         <Grid.Column width={10}>
-          <OrderForm toggleOrderState={changeOrderState} />
+          <OrderForm toggleOrderState={changeOrderState} ingredients={ingredients} />
         </Grid.Column>
         <Grid.Column width={6}>
           <Cart />

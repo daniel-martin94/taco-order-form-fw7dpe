@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
 
 const OrderForm = ({toggleOrderState, ingredients}) => {
-
+  console.log(ingredients)
   return (
       <div>
         <Segment style={{backgroundColor:"#FBEC5D"}}>

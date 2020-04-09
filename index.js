@@ -26,6 +26,7 @@ function App() {
 
 
   const changeOrderState = () => toggleOrder(!orderState)
+  useEffect(() => { setIngredients({'shells': shells}) }, [])
 
   // useEffect = (()=> {
   //   setIngredients({

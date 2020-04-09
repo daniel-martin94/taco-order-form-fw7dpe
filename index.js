@@ -15,7 +15,7 @@ function App() {
 
   const [orderState, toggleOrder] = useState(false);
   const [orders, setOrders] = useState([])
-  const [ingredients, setIngredients] = useState({})
+  const [ingredients, setIngredients] = useState({'shells': shells})
   const [title, changeTitle] = useState("Welcome to the Taco Shop!");
 
 

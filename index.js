@@ -1,18 +1,35 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { render } from 'react-dom';
 import OrderForm from './components/OrderForm';
 import Cart from './components/Cart';
 import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
 import { shells } from './ingredients/shells.json'
+import { base_layers } from './ingredients/base_layers.json'
+import { seasonings } from './ingredients/seasonings.json'
+import { mixins } from './ingredients/mixins.json'
+import { condiments } from './ingredients/condiments.json'
+
 import './style.css';
 
 function App() {
 
   const [orderState, toggleOrder] = useState(false);
   const [orders, setOrders] = useState([])
+  const [ingredients, setIngredients] = useState({})
   const [title, changeTitle] = useState("Welcome to the Taco Shop!");
 
+
   const changeOrderState = () => toggleOrder(!orderState)
+
+  // useEffect = (()=> {
+  //   setIngredients({
+  //     'shells': shells,
+  //     'base_layers': base_layers,
+  //     'seasonings': seasonings,
+  //     'mixins': mixins,
+  //     'condiments':condiments,
+  //   })
+  // }, [ingredients])
 
   return (
     <Container>

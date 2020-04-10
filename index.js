@@ -12,33 +12,24 @@ import { condiments } from './ingredients/condiments.json'
 import './style.css';
 
 function App() {
-  // const initialIngredients = [{
-  //   'shells': shells,
-  //   'base_layers': base_layers,
-  //   'seasonings': seasonings,
-  //   'mixins': mixins,
-  //   'condiments':condiments,
-  // }]
   const [orderState, toggleOrder] = useState(false);
   const [orders, setOrders] = useState([])
-  const [ingredients, setIngredients] = useState({
-    'shells': shells
-    })
+  const [ingredients, setIngredients] = useState({})
   const [title, changeTitle] = useState("Welcome to the Taco Shop!");
 
 
   const changeOrderState = () => toggleOrder(!orderState)
   useEffect(() => { setIngredients({'shells': shells}) }, [])
 
-  // useEffect = (()=> {
-  //   setIngredients({
-  //     'shells': shells,
-  //     'base_layers': base_layers,
-  //     'seasonings': seasonings,
-  //     'mixins': mixins,
-  //     'condiments':condiments,
-  //   })
-  // }, [ingredients])
+  useEffect = (()=> {
+    setIngredients({
+      'shells': shells,
+      'base_layers': base_layers,
+      'seasonings': seasonings,
+      'mixins': mixins,
+      'condiments':condiments,
+    })
+  }, [ingredients])
 
   return (
     <Container>

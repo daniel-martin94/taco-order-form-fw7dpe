@@ -41,11 +41,6 @@
         "price": 2.25
     },
     {
-        "id": "onion",
-        "name": "onion",
-        "price": 0
-    },
-    {
         "id": "chorizo",
         "name": "Chorizo",
         "price": 2.0
@@ -71,11 +66,6 @@
         "price": 5.0 
     },
     {
-        "id": "red_cabbage_filling",
-        "name": "Red Cabbage Filling",
-        "price": 0
-    },
-    {
         "id": "overly_seasoned_ground_beef",
         "name": "Overly Seasoned Ground Beef",
         "price": 3.0
@@ -88,7 +78,7 @@
     {
         "id": "corn_and_black_beans",
         "name": "Corn and Black Beans",
-        "price": 0
+        "price": 1.0
     },
     {
         "id": "baked_tilapia",
@@ -129,11 +119,6 @@
         "id": "better_than_powder_groundbeef",
         "name": "Better Than Powder Groundbeef",
         "price": 1.0
-    },
-    {
-        "id": "swiss_chard",
-        "name": "Swiss Chard",
-        "price": 0.75
     },
     {
         "id": "delengua_beef_tongue",

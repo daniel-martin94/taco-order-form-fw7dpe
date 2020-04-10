@@ -7,8 +7,9 @@ import questions from './questions'
 import { Button, Container, Header, Divider, Grid, Segment, Form, Radio } from "semantic-ui-react";
 
 
-const OrderForm = ({ currentIngredient, changeCurrentIngredient, addOneToOrder }) => {
-  console.log(currentIngredient.data)
+const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder }) => {
+
+  // const ThemeContext = React.createContext(themes.light);
 
   let options = currentIngredient.data.map(function (element, index) {
     return (
@@ -17,8 +18,9 @@ const OrderForm = ({ currentIngredient, changeCurrentIngredient, addOneToOrder }
         <Radio
           label={element.name}
           name='radioGroup'
-          value='this'
-          onChange={addOneToOrder}
+          value={element.id}
+          key={element.id}
+          onChange={addToOrder}
         />
         <Divider />
       </Form.Field>

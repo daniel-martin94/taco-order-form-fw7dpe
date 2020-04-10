@@ -21,7 +21,7 @@ function App() {
   const [startOrder, toggleOrder] = useState(false);
   const [endOrder, finalizeOrder] = useState(false);
 
-  const [orders, setOrders] = useState([])
+  const [orders, setOrder] = useState([])
 
   const [ingredients, setIngredients] = useState()
   const [currentIngredient, setCurrentIngredient] = useState()
@@ -31,11 +31,11 @@ function App() {
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
-  const [currentTacoOrder, addToOrder] = useState()
-
-  const changeOrder = (ingredient) => {
-
+  const changeOrder = (ingredientAdded) => {
+    console.log(ingredientAdded)
   }
+
+  //Need a reducer for adding to order based on radio type
 
   const incrementIngredient = () => {
     setCurrentIngredient(ingredients[0])

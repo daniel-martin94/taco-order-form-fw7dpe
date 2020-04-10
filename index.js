@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import { render } from 'react-dom';
+import WelcomeForm from './components/WelcomeForm';
 import OrderForm from './components/OrderForm';
 import Cart from './components/Cart';
 import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
@@ -19,6 +20,7 @@ function App() {
 
   const changeOrderState = () => toggleOrder(!orderState)
 
+  //Sets the initial ingredients
   useEffect(() => {
     setIngredients({
       'shells': shells,
@@ -28,12 +30,18 @@ function App() {
       'condiments':condiments,
     })
   }, [])
+
   return (
     <Container>
       <Header as="h2">{title}</Header>
       <Grid columns={2} stackable>
         <Grid.Column width={10}>
+        { orderState == false && orders.length == 0 &&
+          <WelcomeForm toggleOrderState={changeOrderState} ingredients={ingredients} />
+        }
+        { orderState == true &&
           <OrderForm toggleOrderState={changeOrderState} ingredients={ingredients} />
+        }
         </Grid.Column>
         <Grid.Column width={6}>
           <Cart />

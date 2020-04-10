@@ -2,10 +2,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
 
-const OrderForm = ({toggleOrderState, ingredients}) => {
+const WelcomeForm = ({toggleOrderState, ingredients}) => {
+  console.log("Welcome")
   return (
       <div>
-        <Segment>
+        <Segment style={{backgroundColor:"#FBEC5D"}}>
           <Header as="h3">Begin by starting an order below!</Header>
           <Button
             content="Let's start an order!"
@@ -20,4 +21,4 @@ const OrderForm = ({toggleOrderState, ingredients}) => {
 }
 
 
-export default OrderForm
+export default WelcomeForm

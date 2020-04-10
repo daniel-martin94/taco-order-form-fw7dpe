@@ -1,27 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render } from 'react-dom';
 
 //Questions
 import questions from './questions'
 
-import { Button, Container, Header, Divider, Grid, Segment, Form, Radio } from "semantic-ui-react";
+import { Button, Container, Header, Divider, Grid, Segment, Form, Radio, Icon, Label } from "semantic-ui-react";
 
 
 const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder }) => {
 
   // const ThemeContext = React.createContext(themes.light);
+  const [currentSelection, setSelection] = useState()
 
   let options = currentIngredient.data.map(function (element, index) {
+    console.log(element.price)
     return (
-
       <Form.Field>
-        <Radio
-          label={element.name}
-          name='radioGroup'
-          value={element.id}
-          key={element.id}
-          onChange={addToOrder}
-        />
+        <Grid>
+          <Grid.Column width={10}>
+            <Radio
+              label={element.name}
+              name='radioGroup'
+              value={element.id}
+              onChange={}
+            />
+          </Grid.Column>
+          {element.price &&
+            <Grid.Column width={6}>
+              <Label color="green">
+                <Icon name='dollar' /> {element.price}
+              </Label>
+            </Grid.Column>
+          }
+        </Grid>
         <Divider />
       </Form.Field>
     )

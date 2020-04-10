@@ -34,7 +34,7 @@ function App() {
     })
     console.log("Hey")
     console.log(temp)
-    setCurrentIngredient(temp)
+    setCurrentIngredient(ingredients[0])
     console.log(currentIngredient)
     // setIngredients(ingredients.filter(function (element, index) {
     //   if (index !== 0) {

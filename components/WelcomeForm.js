@@ -2,8 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
 
-const WelcomeForm = ({toggleOrderState, ingredients}) => {
-  console.log("Welcome")
+const WelcomeForm = ({toggleOrderState}) => {
   return (
       <div>
         <Segment style={{backgroundColor:"#FBEC5D"}}>

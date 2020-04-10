@@ -31,6 +31,12 @@ function App() {
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
+  const [currentTacoOrder, addToOrder] = useState()
+
+  const changeOrder = (ingredient) => {
+
+  }
+
   const incrementIngredient = () => {
     setCurrentIngredient(ingredients[0])
     setIngredients(ingredients.filter(function (element, index) {
@@ -75,7 +81,7 @@ function App() {
             <WelcomeForm toggleOrderState={changeOrderState} />
           }
           {startOrder == true &&
-            <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} />
+            <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} addToOrder={changeOrder}/>
           }
         </Grid.Column>
         <Grid.Column width={6}>

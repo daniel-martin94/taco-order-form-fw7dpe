@@ -1,13 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
+
+//Questions
+import { questions } from './questions'
 import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
 
-const OrderForm = ({ currentQuestion, currentIngredient, changeCurrentIngredient}) => {
-  console.table("Current Ingredient: " + currentIngredient)
+const OrderForm = ({ currentIngredient, changeCurrentIngredient}) => {
+  console.log(questions[currentIngredient['type']])
   return (
       <div>
         <Segment>
-          <Header as="h3">Begin by starting an order below!</Header>
+          <Header as="h3">questions</Header>
           <Button
             content="Next"
             size="medium"

@@ -4,11 +4,16 @@ import WelcomeForm from './components/WelcomeForm';
 import OrderForm from './components/OrderForm';
 import Cart from './components/Cart';
 import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
+
+//Ingredients
 import { shells } from './ingredients/shells.json'
 import { base_layers } from './ingredients/base_layers.json'
 import { seasonings } from './ingredients/seasonings.json'
 import { mixins } from './ingredients/mixins.json'
 import { condiments } from './ingredients/condiments.json'
+
+//Questions
+import { questions } from './questions'
 
 import './style.css';
 
@@ -17,54 +22,49 @@ function App() {
   const [endOrder, finalizeOrder] = useState(false);
 
   const [orders, setOrders] = useState([])
-  const [ingredients, setIngredients] = useState()
 
+  const [ingredients, setIngredients] = useState()
   const [currentIngredient, setCurrentIngredient] = useState()
-  const [ingredientCounter, setCounter] = useState(0)
+  const [question, setQuestion] = useState()
 
   const [title, changeTitle] = useState("Welcome to the Taco Shop!");
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
   const incrementIngredient = () => {
-    let temp = ingredients.filter(function (element, index) {
-        if (index == 0) {
+    setCurrentIngredient(ingredients[0])
+    setIngredients(ingredients.filter(function (element, index) {
+      if (index !== 0) {
         return element
       }
-    })
-    console.log("Hey")
-    console.log(temp)
-    setCurrentIngredient(ingredients[0])
-    console.log(currentIngredient)
-    // setIngredients(ingredients.filter(function (element, index) {
-    //   if (index !== 0) {
-    //     return element
-    //   }
-    // }))
+    }))
     
-  };
-  const changeCurrentIngredient = () => {
-    console.log(ingredients.useState)
-    console.log(currentIngredient)
-    setCurrentIngredient({"Pork": true})
-    // setCurrentIngredient(ingredients[0])
-    // setCurrentIngredient(ingredients.filter(function (element, index) {
-    //   if (index === 0) {
-    //     console.log(element)
-    //     return element
-    //   }
-    // }))
   };
 
   //Sets the initial ingredients
   useEffect(() => {
     setIngredients([
-      shells,
-      base_layers,
-      seasonings,
-      mixins,
-      condiments,
-    ])
+      {
+        'type': 'base_layers',
+        'data': base_layers
+      },
+      {
+        'type': 'seasonings',
+        'data': seasonings
+      },
+            {
+        'type': 'mixins',
+        'data': mixins
+      },
+      {
+        'type': 'condiments',
+        'data': condiments
+      },
+    ]),
+    setCurrentIngredient({
+        'type': 'shells',
+        'data': shells
+      })
   }, [])
   return (
     <Container>
@@ -81,13 +81,6 @@ function App() {
         <Grid.Column width={6}>
           <Cart />
         </Grid.Column>
-        <Button
-          content="Set current ingredient"
-          size="medium"
-          icon="arrow circle right"
-          onClick={incrementIngredient}
-          labelPosition="right"
-        />
       </Grid>
     </Container>
   );

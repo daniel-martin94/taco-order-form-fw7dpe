@@ -17,11 +17,9 @@ function App() {
   const [ingredients, setIngredients] = useState({})
   const [title, changeTitle] = useState("Welcome to the Taco Shop!");
 
-
   const changeOrderState = () => toggleOrder(!orderState)
-  useEffect(() => { setIngredients({'shells': shells}) }, [])
 
-  useEffect = (()=> {
+  useEffect(() => {
     setIngredients({
       'shells': shells,
       'base_layers': base_layers,
@@ -29,8 +27,7 @@ function App() {
       'mixins': mixins,
       'condiments':condiments,
     })
-  }, [ingredients])
-
+  }, [])
   return (
     <Container>
       <Header as="h2">{title}</Header>

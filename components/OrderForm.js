@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
 
-const OrderForm = ({ currentQuestion, currentIngredients, saveIngredients}) => {
-  console.log("Current Ingredient: " + currentIngredients)
+const OrderForm = ({ currentQuestion, currentIngredient, changeCurrentIngredient}) => {
+  console.table("Current Ingredient: " + currentIngredient)
   return (
       <div>
         <Segment>
@@ -12,7 +12,7 @@ const OrderForm = ({ currentQuestion, currentIngredients, saveIngredients}) => {
             content="Next"
             size="medium"
             icon="arrow circle right"
-            onClick={saveIngredients}
+            onClick={changeCurrentIngredient}
             labelPosition="right"
           />
         </Segment>  

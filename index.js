@@ -26,63 +26,68 @@ function App() {
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
-  const changeCurrentIngredient = (i) => {
-        setIngredients(i.filter(function(element, index){
-            if (index !== 0) {
-              return element
-            }
-        }))
+  const incrementIngredient = () => {
+    let temp = ingredients.filter(function (element, index) {
+        if (index == 0) {
+        return element
+      }
+    })
+    console.log("Hey")
+    console.log(temp)
+    setCurrentIngredient(temp)
+    console.log(currentIngredient)
+    // setIngredients(ingredients.filter(function (element, index) {
+    //   if (index !== 0) {
+    //     return element
+    //   }
+    // }))
+    
   };
-  //const onChangeItemName = (itemId) => {
-//     setNotesDummyData(notesDummyData.filter(({ id }) => id !== itemId));
-// };
+  const changeCurrentIngredient = () => {
+    console.log(ingredients.useState)
+    console.log(currentIngredient)
+    setCurrentIngredient({"Pork": true})
+    // setCurrentIngredient(ingredients[0])
+    // setCurrentIngredient(ingredients.filter(function (element, index) {
+    //   if (index === 0) {
+    //     console.log(element)
+    //     return element
+    //   }
+    // }))
+  };
 
   //Sets the initial ingredients
-  // useEffect(() => {
-  //   setIngredients([
-  //     shells,
-  //     base_layers,
-  //     seasonings,
-  //     mixins,
-  //     condiments,
-  //   ])
-  // }, [])
-
-  //Sets the change the ingredient list
-  // useEffect(() => {
-  //   setIngredients(ingredients.filter(function(element, index){
-  //     if (index !== 0) {
-  //       return element
-  //     }
-  //   }))
-  // }, [])
-  // setIngredients(ingredients.filter(function(element, index){
-  //     if (index !== 0) {
-  //       return element
-  //     }
-  // }))
-  console.log(ingredients)
-  //Sets the current ingredient to the order form
-  // useEffect(() => {
-  //   setCurrentIngredient(ingredients[ingredientCounter])
-  // }, [])
-  // console.log(currentIngredient)
-  // console.log(ingredients)
+  useEffect(() => {
+    setIngredients([
+      shells,
+      base_layers,
+      seasonings,
+      mixins,
+      condiments,
+    ])
+  }, [])
   return (
     <Container>
       <Header as="h2">{title}</Header>
       <Grid columns={2} stackable>
         <Grid.Column width={10}>
-        { startOrder == false && orders.length == 0 &&
-          <WelcomeForm toggleOrderState={changeOrderState} />
-        }
-        { startOrder == true && 
-          <OrderForm currentIngredient={currentIngredient} />
-        }
+          {startOrder == false && orders.length == 0 &&
+            <WelcomeForm toggleOrderState={changeOrderState} />
+          }
+          {startOrder == true &&
+            <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} />
+          }
         </Grid.Column>
         <Grid.Column width={6}>
           <Cart />
         </Grid.Column>
+        <Button
+          content="Set current ingredient"
+          size="medium"
+          icon="arrow circle right"
+          onClick={incrementIngredient}
+          labelPosition="right"
+        />
       </Grid>
     </Container>
   );

@@ -3,7 +3,8 @@
 [
     {
         "id": "sweet_potato_and_apple_hash",
-        "name": "Sweet Potato and Apple Hash"
+        "name": "Sweet Potato and Apple Hash",
+        "price": 0.50
     },
     {
         "id": "potato_hash",

@@ -24,22 +24,19 @@ function App() {
   const [order, setOrder] = useState([])
 
   const [ingredients, setIngredients] = useState()
+  const [ingredientCount, setIngredientCount] = useState(0)
   const [currentIngredient, setCurrentIngredient] = useState()
-  const [question, setQuestion] = useState()
 
   const [title, changeTitle] = useState("Welcome to the Taco Shop!");
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
-  // function changeOrder (value) {
-  //   //Need some check here to pop and push when needed 
-  //   setOrder(currentOrder => [...order, value], )
-  // }
   function addSingleItem (value) {
+
     //This removes the last item AND return the original array
-    // if (order.length > 0){
-    //   setOrder(order.length = order.length - 1)
-    // }
+    if (order.length > ingredientCount) {
+      setOrder(order.length = order.length - 1)
+    }
     setOrder(currentOrder => [...order, value])
   }
 
@@ -52,6 +49,8 @@ function App() {
         return element
       }
     }))
+    setIngredientCount(ingredientCount + 1);
+
     
   };
 

@@ -4,12 +4,25 @@ import { render } from 'react-dom';
 //Questions
 import questions from './questions'
 
-import { Button, Container, Header, Divider, Grid, Segment, Form, Radio, Icon, Label } from "semantic-ui-react";
+import { Button, Container, Header, Divider, Grid, Segment, Form, Radio, Icon, Label, Checkbox } from "semantic-ui-react";
 
 
 const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder, addSingleItem }) => {
 
   const [currentSelection, setSelection] = useState()
+  const [multipleSelection, setMultipleSelection] = useState([])
+  const [checked, checkToggle] = useState(false)
+
+  function deleteIngredient(){
+    console.log("delete")
+  }
+  function addIngredient(){
+    console.log("add")
+  }
+  function toggleIngredient () {
+    checkToggle(!checked)
+    {checked ? deleteIngredient() : addIngredient()}
+  }
 
   function optionDecide(type) {
     if (type == 'shells' || type == 'base_layers') {
@@ -42,6 +55,33 @@ const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder, add
         )
       })
     }
+
+    //Other types of ingredients
+    return currentIngredient.data.map(function (element, index) {
+        return (
+          <Form.Field>
+            <Grid>
+              <Grid.Column width={10}>
+                <Checkbox 
+                label={element.name} 
+                key={index}
+                value={element.id}
+                onClick={toggleIngredient}
+                />
+              </Grid.Column>
+              {element.price && element.price > 0 &&
+                <Grid.Column width={6}>
+                  <Label color="green">
+                    <Icon name='dollar' /> {element.price}
+                  </Label>
+                </Grid.Column>
+              }
+            </Grid>
+            <Divider />
+          </Form.Field>
+        )
+      })
+    
   }
   return (
     <div>

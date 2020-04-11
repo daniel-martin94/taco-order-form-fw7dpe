@@ -31,9 +31,17 @@ function App() {
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
-  function changeOrder (value) {
+  // function changeOrder (value) {
+  //   //Need some check here to pop and push when needed 
+  //   setOrder(currentOrder => [...order, value], )
+  // }
+  function addSingleItem (value) {
     //Need some check here to pop and push when needed 
-    setOrder(currentOrder => [...order, value], )
+    //setOrder(currentOrder => [...order, value], )
+    if (order.length > 0){
+      setOrder(order.slice(1, -1))
+    }
+    setOrder(currentOrder => [value], )
   }
 
   //Need a reducer for adding to order based on radio type
@@ -83,7 +91,7 @@ function App() {
             <WelcomeForm toggleOrderState={changeOrderState} />
           }
           {startOrder == true &&
-            <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} addToOrder={changeOrder}/>
+            <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} addSingleItem={addSingleItem}/>
           }
         </Grid.Column>
         <Grid.Column width={6}>

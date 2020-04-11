@@ -21,7 +21,7 @@ function App() {
   const [startOrder, toggleOrder] = useState(false);
   const [endOrder, finalizeOrder] = useState(false);
 
-  const [orders, setOrder] = useState([])
+  const [order, setOrder] = useState([])
 
   const [ingredients, setIngredients] = useState()
   const [currentIngredient, setCurrentIngredient] = useState()
@@ -31,8 +31,8 @@ function App() {
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
-  const changeOrder = (ingredientAdded) => {
-    console.log(ingredientAdded)
+  const changeOrder = () => {
+    setOrder(currentOrder => [...order, newItem], )
   }
 
   //Need a reducer for adding to order based on radio type

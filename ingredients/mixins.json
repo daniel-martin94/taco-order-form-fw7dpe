@@ -44,7 +44,8 @@
     },
     {
         "id": "drunken_green_beans",
-        "name": "Drunken Green Beans"
+        "name": "Drunken Green Beans",
+        "price": 0.50
     },
     {
         "id": "pomegranate_seeds",

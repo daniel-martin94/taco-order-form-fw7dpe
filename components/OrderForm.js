@@ -20,7 +20,11 @@ const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder }) =
               label={element.name}
               name='radioGroup'
               value={element.id}
-              onChange={addToOrder}
+              checked={currentSelection === element.id}
+              onChange={() => {
+                setSelection(element.id);
+                addToOrder(element);
+              }}
             />
           </Grid.Column>
           {element.price && element.price > 0 &&

@@ -31,8 +31,9 @@ function App() {
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
-  const changeOrder = () => {
-    setOrder(currentOrder => [...order, newItem], )
+  function changeOrder (value) {
+    //Need some check here to pop and push when needed 
+    setOrder(currentOrder => [...order, value], )
   }
 
   //Need a reducer for adding to order based on radio type
@@ -72,12 +73,13 @@ function App() {
         'data': shells
       })
   }, [])
+  console.log(order)
   return (
     <Container>
       <Header as="h2">{title}</Header>
       <Grid columns={2} stackable>
         <Grid.Column width={10}>
-          {startOrder == false && orders.length == 0 &&
+          {startOrder == false && order.length == 0 &&
             <WelcomeForm toggleOrderState={changeOrderState} />
           }
           {startOrder == true &&

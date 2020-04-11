@@ -9,11 +9,9 @@ import { Button, Container, Header, Divider, Grid, Segment, Form, Radio, Icon, L
 
 const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder }) => {
 
-  // const ThemeContext = React.createContext(themes.light);
   const [currentSelection, setSelection] = useState()
 
   let options = currentIngredient.data.map(function (element, index) {
-    console.log(element.price)
     return (
       <Form.Field>
         <Grid>
@@ -22,10 +20,10 @@ const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder }) =
               label={element.name}
               name='radioGroup'
               value={element.id}
-              onChange={}
+              onChange={addToOrder}
             />
           </Grid.Column>
-          {element.price &&
+          {element.price && element.price > 0 &&
             <Grid.Column width={6}>
               <Label color="green">
                 <Icon name='dollar' /> {element.price}

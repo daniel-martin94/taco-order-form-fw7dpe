@@ -27,8 +27,7 @@
     },
     {
         "id": "bellpepper",
-        "name": "bellpepper",
-        "price": 0
+        "name": "bellpepper"
     },
     {
         "id": "crock_pot_pulled_pork",
@@ -47,8 +46,7 @@
     },
     {
         "id": "garlic_black_beans",
-        "name": "Garlic Black Beans",
-        "price": 0
+        "name": "Garlic Black Beans"
     },
     {
         "id": "marinated_portobello_mushroom",

@@ -3,7 +3,8 @@
 [
     {
         "id": "mango_avocado_salsa",
-        "name": "Mango Avocado Salsa"
+        "name": "Mango Avocado Salsa",
+        "price": 0.50
     },
     {
         "id": "chipotle_sauce",
@@ -19,7 +20,8 @@
     },
     {
         "id": "guacamole",
-        "name": "Guacamole"
+        "name": "Guacamole",
+        "price": 2.0
     },
     {
         "id": "salsa_sauce",

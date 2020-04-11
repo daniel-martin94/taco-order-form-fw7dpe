@@ -36,12 +36,11 @@ function App() {
   //   setOrder(currentOrder => [...order, value], )
   // }
   function addSingleItem (value) {
-    //Need some check here to pop and push when needed 
-    //setOrder(currentOrder => [...order, value], )
-    if (order.length > 0){
-      setOrder(order.slice(1, -1))
-    }
-    setOrder(currentOrder => [value], )
+    //This removes the last item AND return the original array
+    // if (order.length > 0){
+    //   setOrder(order.length = order.length - 1)
+    // }
+    setOrder(currentOrder => [...order, value])
   }
 
   //Need a reducer for adding to order based on radio type

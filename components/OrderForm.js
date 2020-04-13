@@ -35,6 +35,7 @@ const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder, add
                   label={element.name}
                   name='radioGroup'
                   value={element.id}
+                  key={element.id}
                   checked={currentSelection === element.id}
                   onChange={() => {
                     setSelection(element.id);

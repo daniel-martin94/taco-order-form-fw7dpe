@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component, useState, useEffect, useCallback } from 'react';
 import { render } from 'react-dom';
 import WelcomeForm from './components/WelcomeForm';
 import OrderForm from './components/OrderForm';
@@ -42,28 +42,26 @@ function App() {
   }
 
   function addMultipleItem(item) {
-    console.log(multipleSelection)
-    console.log(item)
-    let tempID = item.id
-    //Deleted an item if it exisits in the multiple selection
-    if (multipleSelection.some(item => item.id === tempID)) {
-      setMultipleSelection(multipleSelection.filter(function (value, index) {
-        if (value.id != item.id) {
-          return value
-        }
-      }))
-    } else {
-
-      //Add the item
-      setMultipleSelection(currentSelections => [...currentSelections, item])
-    }
-    console.log(multipleSelection)
-    //This removes the last item AND return the original array. This is only for radio menu items. 
+    // let tempID = item.id
+    // //Deleted an item if it exisits in the multiple selection
+    // if (multipleSelection.some(item => item.id === tempID)) {
+    //   setMultipleSelection(multipleSelection.filter(function (value, index) {
+    //     if (value.id != item.id) {
+    //       return value
+    //     }
+    //   }))
+    // } else {
+    //   //Add the item
+    //   setMultipleSelection(currentSelections => [...currentSelections, item])
+    // } 
+    setMultipleSelection(currentSelections => [...currentSelections, item])
     if (order.length > ingredientCount) {
       setOrder(order.length = order.length - 1)
     }
     setOrder(currentItems => [...order, multipleSelection])
   }
+
+  //const setMultiple = useCallback((item) => addMultipleItem(item), []);
 
   const incrementIngredient = () => {
     setCurrentIngredient(ingredients[0])
@@ -101,6 +99,11 @@ function App() {
         'data': shells
       })
   }, [])
+
+    //Sets the initial ingredients
+  useEffect(() => {
+    setMultipleSelection(multipleSelection)
+  }, [multipleSelection])
   console.log(order)
   return (
     <Container>

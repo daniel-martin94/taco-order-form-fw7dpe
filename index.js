@@ -32,7 +32,6 @@ function App() {
   const changeOrderState = () => toggleOrder(!startOrder)
 
   function addSingleItem (value) {
-
     //This removes the last item AND return the original array
     if (order.length > ingredientCount) {
       setOrder(order.length = order.length - 1)
@@ -40,7 +39,9 @@ function App() {
     setOrder(currentOrder => [...order, value])
   }
 
-  //Need a reducer for adding to order based on radio type
+  function addMultipleItem(value) {
+
+  }
 
   const incrementIngredient = () => {
     setCurrentIngredient(ingredients[0])
@@ -79,7 +80,6 @@ function App() {
         'data': shells
       })
   }, [])
-  console.log(order)
   return (
     <Container>
       <Header as="h2">{title}</Header>

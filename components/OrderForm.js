@@ -13,22 +13,28 @@ const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder, add
   const [multipleSelection, setMultipleSelection] = useState([])
   const [checked, checkToggle] = useState(false)
 
-  function deleteIngredient(){
-    console.log("delete")
+  function deleteIngredient(item){
+    setMultipleSelection(multipleSelection.filter(function(value, index){
+      if (value.id != item.id){
+        return value
+      }
+    }))
+    addSingleItem(multipleSelection)
   }
-  function addIngredient(){
-    console.log("add")
+  function addIngredient(item){
+    setMultipleSelection([...multipleSelection, item])
+    addSingleItem(multipleSelection)
   }
-  function toggleIngredient () {
-    checkToggle(!checked)
-    {checked ? deleteIngredient() : addIngredient()}
+  function toggleIngredient (item) {
+    let tempID = item.id
+    multipleSelection.some(item => item.id === tempID) ? deleteIngredient(item) : addIngredient(item)
   }
 
   function optionDecide(type) {
     if (type == 'shells' || type == 'base_layers') {
       return currentIngredient.data.map(function (element, index) {
         return (
-          <Form.Field>
+          <Form.Field key={element.id}>
             <Grid>
               <Grid.Column width={10}>
                 <Radio
@@ -45,7 +51,7 @@ const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder, add
               </Grid.Column>
               {element.price && element.price > 0 &&
                 <Grid.Column width={6}>
-                  <Label color="green">
+                  <Label color="green" key={element.id}>
                     <Icon name='dollar' /> {element.price}
                   </Label>
                 </Grid.Column>
@@ -56,18 +62,17 @@ const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder, add
         )
       })
     }
-
     //Other types of ingredients
     return currentIngredient.data.map(function (element, index) {
         return (
-          <Form.Field>
+          <Form.Field key={element.id}>
             <Grid>
               <Grid.Column width={10}>
                 <Checkbox 
                 label={element.name} 
-                key={index}
                 value={element.id}
-                onClick={toggleIngredient}
+                key={element.id}
+                onClick={() => {toggleIngredient(element)}}
                 />
               </Grid.Column>
               {element.price && element.price > 0 &&

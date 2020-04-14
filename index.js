@@ -31,16 +31,38 @@ function App() {
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
-  function addSingleItem (value) {
-    //This removes the last item AND return the original array
+  const [multipleSelection, setMultipleSelection] = useState([])
+
+  function addSingleItem(value) {
+    //This removes the last item AND return the original array. This is only for radio menu items. 
     if (order.length > ingredientCount) {
       setOrder(order.length = order.length - 1)
     }
     setOrder(currentOrder => [...order, value])
   }
 
-  function addMultipleItem(value) {
+  function addMultipleItem(item) {
+    console.log(multipleSelection)
+    console.log(item)
+    let tempID = item.id
+    //Deleted an item if it exisits in the multiple selection
+    if (multipleSelection.some(item => item.id === tempID)) {
+      setMultipleSelection(multipleSelection.filter(function (value, index) {
+        if (value.id != item.id) {
+          return value
+        }
+      }))
+    } else {
 
+      //Add the item
+      setMultipleSelection(currentSelections => [...currentSelections, item])
+    }
+    console.log(multipleSelection)
+    //This removes the last item AND return the original array. This is only for radio menu items. 
+    if (order.length > ingredientCount) {
+      setOrder(order.length = order.length - 1)
+    }
+    setOrder(currentItems => [...order, multipleSelection])
   }
 
   const incrementIngredient = () => {
@@ -52,9 +74,8 @@ function App() {
     }))
     setIngredientCount(ingredientCount + 1);
 
-    
-  };
 
+  };
   //Sets the initial ingredients
   useEffect(() => {
     setIngredients([
@@ -66,7 +87,7 @@ function App() {
         'type': 'seasonings',
         'data': seasonings
       },
-            {
+      {
         'type': 'mixins',
         'data': mixins
       },
@@ -75,11 +96,12 @@ function App() {
         'data': condiments
       },
     ]),
-    setCurrentIngredient({
+      setCurrentIngredient({
         'type': 'shells',
         'data': shells
       })
   }, [])
+  console.log(order)
   return (
     <Container>
       <Header as="h2">{title}</Header>
@@ -89,7 +111,7 @@ function App() {
             <WelcomeForm toggleOrderState={changeOrderState} />
           }
           {startOrder == true &&
-            <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} addSingleItem={addSingleItem}/>
+            <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} addMultipleItem={addMultipleItem} addSingleItem={addSingleItem} />
           }
         </Grid.Column>
         <Grid.Column width={6}>

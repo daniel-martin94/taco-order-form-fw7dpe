@@ -7,28 +7,10 @@ import questions from './questions'
 import { Button, Container, Header, Divider, Grid, Segment, Form, Radio, Icon, Label, Checkbox } from "semantic-ui-react";
 
 
-const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder, addSingleItem }) => {
+const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder, addSingleItem, addMultipleItem }) => {
 
   const [currentSelection, setSelection] = useState()
-  const [multipleSelection, setMultipleSelection] = useState([])
   const [checked, checkToggle] = useState(false)
-
-  function deleteIngredient(item){
-    setMultipleSelection(multipleSelection.filter(function(value, index){
-      if (value.id != item.id){
-        return value
-      }
-    }))
-    addSingleItem(multipleSelection)
-  }
-  function addIngredient(item){
-    setMultipleSelection([...multipleSelection, item])
-    addSingleItem(multipleSelection)
-  }
-  function toggleIngredient (item) {
-    let tempID = item.id
-    multipleSelection.some(item => item.id === tempID) ? deleteIngredient(item) : addIngredient(item)
-  }
 
   function optionDecide(type) {
     if (type == 'shells' || type == 'base_layers') {
@@ -72,7 +54,9 @@ const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder, add
                 label={element.name} 
                 value={element.id}
                 key={element.id}
-                onClick={() => {toggleIngredient(element)}}
+                onClick={() => {
+                  addMultipleItem(element);
+                }}
                 />
               </Grid.Column>
               {element.price && element.price > 0 &&
@@ -89,6 +73,7 @@ const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder, add
       })
     
   }
+  //console.log(multipleSelection)
   return (
     <div>
       <Segment>

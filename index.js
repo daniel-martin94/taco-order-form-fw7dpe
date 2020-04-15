@@ -106,8 +106,15 @@ function App() {
       temp[ingredientCount] = multipleSelection
       setOrder(temp)
     }
+
+    if (multipleSelection.length == 0 && order.length > 0){
+      setOrder(order.filter(function (value, index) {
+        if (index != ingredientCount) {
+          return value
+        }
+      }))
+    }
   }, [multipleSelection])
-  console.log(order)
   return (
     <Container>
       <Header as="h2">{title}</Header>

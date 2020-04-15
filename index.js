@@ -42,19 +42,18 @@ function App() {
   }
 
   function addMultipleItem(item) {
-    // let tempID = item.id
+    let tempID = item.id
     // //Deleted an item if it exisits in the multiple selection
-    // if (multipleSelection.some(item => item.id === tempID)) {
-    //   setMultipleSelection(multipleSelection.filter(function (value, index) {
-    //     if (value.id != item.id) {
-    //       return value
-    //     }
-    //   }))
-    // } else {
-    //   //Add the item
-    //   setMultipleSelection(currentSelections => [...currentSelections, item])
-    // } 
-    setMultipleSelection(currentSelections => [...currentSelections, item])
+    if (multipleSelection.some(item => item.id === tempID)) {
+      setMultipleSelection(multipleSelection.filter(function (value, index) {
+        if (value.id != item.id) {
+          return value
+        }
+      }))
+    } else {
+      //Add the item
+      setMultipleSelection(currentSelections => [...currentSelections, item])
+    } 
     if (order.length > ingredientCount) {
       setOrder(order.length = order.length - 1)
     }
@@ -102,7 +101,11 @@ function App() {
 
     //Sets the initial ingredients
   useEffect(() => {
-    setMultipleSelection(multipleSelection)
+    if (multipleSelection.length > 0) {
+      let temp = [...order]
+      temp[ingredientCount] = multipleSelection
+      setOrder(temp)
+    }
   }, [multipleSelection])
   console.log(order)
   return (

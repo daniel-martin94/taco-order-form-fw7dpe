@@ -69,6 +69,7 @@ function App() {
         return element
       }
     }))
+    setMultipleSelection([])
     setIngredientCount(ingredientCount + 1);
 
 
@@ -115,6 +116,7 @@ function App() {
       }))
     }
   }, [multipleSelection])
+  console.log(order)
   return (
     <Container>
       <Header as="h2">{title}</Header>

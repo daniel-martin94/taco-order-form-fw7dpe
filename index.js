@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect, useCallback } from 'react';
 import { render } from 'react-dom';
 import WelcomeForm from './components/WelcomeForm';
 import OrderForm from './components/OrderForm';
+import TacoNumberForm from './components/TacoNumberForm'
 import Cart from './components/Cart';
 import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
 
@@ -32,6 +33,16 @@ function App() {
   const changeOrderState = () => toggleOrder(!startOrder)
 
   const [multipleSelection, setMultipleSelection] = useState([])
+
+  const [tacoNumber, setTacoNumber] = useState(1)
+  const [price, setPrice] = useState(0)
+
+  const incrementTacoNumber = () => {
+    setTacoNumber(tacoNumber + 1)
+  }
+  const decrementTacoNumber = () => {
+    setTacoNumber(tacoNumber - 1)
+  }
 
   function addSingleItem(value) {
     //This removes the last item AND return the original array. This is only for radio menu items. 
@@ -116,7 +127,25 @@ function App() {
       }))
     }
   }, [multipleSelection])
-  console.log(order)
+
+  useEffect(() => {
+    if (order.length > 0) {
+      let tempPrice = 0
+      order.map(function (element, index) {
+        if (element.price) {
+          tempPrice = tempPrice + element.price;
+        }
+        else if (Array.isArray(element)) {
+          for (let i = 0; i < element.length; i++) {
+            if (element[i].price) {
+              tempPrice = tempPrice + element[i].price;
+            }
+          }
+        }
+      })
+      setPrice(tempPrice * tacoNumber)
+    }
+  }, [order])
   return (
     <Container>
       <Header as="h2">{title}</Header>
@@ -125,12 +154,19 @@ function App() {
           {startOrder == false && order.length == 0 &&
             <WelcomeForm toggleOrderState={changeOrderState} />
           }
-          {startOrder == true &&
+          {startOrder == true && ingredients.length == 0 &&
+            <TacoNumberForm 
+            numberOfTacos={tacoNumber} 
+            incrementTacoNumber={incrementTacoNumber} 
+            decrementTacoNumber={decrementTacoNumber}
+            toggleOrderState={changeOrderState} />
+          }
+          {startOrder == true && ingredients.length > 0 &&
             <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} addMultipleItem={addMultipleItem} addSingleItem={addSingleItem} />
           }
         </Grid.Column>
         <Grid.Column width={6}>
-          <Cart />
+          <Cart order={order} numberOfTacos={tacoNumber} price={price}/>
         </Grid.Column>
       </Grid>
     </Container>

@@ -20,7 +20,6 @@ import './style.css';
 
 function App() {
   const [startOrder, toggleOrder] = useState(false);
-  const [endOrder, finalizeOrder] = useState(false);
 
   const [order, setOrder] = useState([])
 

@@ -4,10 +4,10 @@ import { render } from 'react-dom';
 //Questions
 import questions from './questions'
 
-import { Button, Container, Header, Divider, Grid, Segment, Form, Radio, Icon, Label, Checkbox } from "semantic-ui-react";
+import { Button, Header, Divider, Grid, Segment, Form, Radio, Icon, Label, Checkbox } from "semantic-ui-react";
 
 
-const OrderForm = ({ currentIngredient, changeCurrentIngredient, addToOrder, addSingleItem, addMultipleItem }) => {
+const OrderForm = ({ currentIngredient, changeCurrentIngredient, addSingleItem, addMultipleItem }) => {
 
   const [currentSelection, setSelection] = useState()
   const [checked, checkToggle] = useState(false)

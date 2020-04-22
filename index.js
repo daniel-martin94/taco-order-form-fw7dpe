@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect, useCallback } from 'react';
 import { render } from 'react-dom';
 import WelcomeForm from './components/WelcomeForm';
+import GenericForm from './components/GenericForm';
 import OrderForm from './components/OrderForm';
 import TacoNumberForm from './components/TacoNumberForm'
 import FinalizeOrder from './components/FinalizeOrder'
@@ -151,7 +152,9 @@ function App() {
       <Grid columns={2} stackable>
         <Grid.Column width={10}>
           {startOrder == false && order.length == 0 &&
-            <WelcomeForm toggleOrderState={changeOrderState} />
+            <GenericForm message={'Begin by starting an order below!'} 
+            buttonContent={"Let's start an order!"}
+            toggleOrderState={changeOrderState} />
           }
           {startOrder == true && ingredients.length == 0 &&
             <TacoNumberForm 

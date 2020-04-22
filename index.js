@@ -1,10 +1,8 @@
 import React, { Component, useState, useEffect, useCallback } from 'react';
 import { render } from 'react-dom';
-import WelcomeForm from './components/WelcomeForm';
 import GenericForm from './components/GenericForm';
 import OrderForm from './components/OrderForm';
 import TacoNumberForm from './components/TacoNumberForm'
-import FinalizeOrder from './components/FinalizeOrder'
 import Cart from './components/Cart';
 import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
 
@@ -66,7 +64,7 @@ function App() {
     } else {
       //Add the item
       setMultipleSelection(currentSelections => [...currentSelections, item])
-    } 
+    }
     if (order.length > ingredientCount) {
       setOrder(order.length = order.length - 1)
     }
@@ -119,7 +117,7 @@ function App() {
       setOrder(temp)
     }
 
-    if (multipleSelection.length == 0 && order.length > 0){
+    if (multipleSelection.length == 0 && order.length > 0) {
       setOrder(order.filter(function (value, index) {
         if (index != ingredientCount) {
           return value
@@ -152,26 +150,26 @@ function App() {
       <Grid columns={2} stackable>
         <Grid.Column width={10}>
           {startOrder == false && order.length == 0 &&
-            <GenericForm message={'Begin by starting an order below!'} 
-            buttonContent={"Let's start an order!"}
-            toggleOrderState={changeOrderState} />
+            <GenericForm message={'Begin by starting an order below!'}
+              buttonContent={"Let's start an order!"}
+              toggleOrderState={changeOrderState} />
           }
           {startOrder == true && ingredients.length == 0 &&
-            <TacoNumberForm 
-            numberOfTacos={tacoNumber} 
-            incrementTacoNumber={incrementTacoNumber} 
-            decrementTacoNumber={decrementTacoNumber}
-            toggleOrderState={changeOrderState} />
+            <TacoNumberForm
+              numberOfTacos={tacoNumber}
+              incrementTacoNumber={incrementTacoNumber}
+              decrementTacoNumber={decrementTacoNumber}
+              toggleOrderState={changeOrderState} />
           }
           {startOrder == true && ingredients.length > 0 &&
             <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} addMultipleItem={addMultipleItem} addSingleItem={addSingleItem} />
           }
           {startOrder == false && ingredients.length == 0 &&
-            <FinalizeOrder/>
+            <GenericForm message={'Thank you for your order!'} />
           }
         </Grid.Column>
         <Grid.Column width={6}>
-          <Cart order={order} numberOfTacos={tacoNumber} price={price}/>
+          <Cart order={order} numberOfTacos={tacoNumber} price={price} />
         </Grid.Column>
       </Grid>
     </Container>

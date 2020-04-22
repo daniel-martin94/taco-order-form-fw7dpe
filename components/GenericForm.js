@@ -7,13 +7,15 @@ const GenericForm = ({ message, buttonContent, toggleOrderState }) => {
       <div>
         <Segment style={{backgroundColor:"#FBEC5D"}}>
           <Header as="h3">{message}</Header>
-          <Button
-            content={buttonContent}
-            size="medium"
-            icon="arrow circle right"
-            onClick={toggleOrderState}
-            labelPosition="right"
-          />
+          {buttonContent && 
+            <Button
+              content={buttonContent}
+              size="medium"
+              icon="arrow circle right"
+              onClick={toggleOrderState}
+              labelPosition="right"
+            />
+          }
         </Segment>  
       </div>
   )

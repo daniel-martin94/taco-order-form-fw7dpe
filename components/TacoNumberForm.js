@@ -18,7 +18,7 @@ const TacoNumberForm = ({ toggleOrderState, numberOfTacos, incrementTacoNumber, 
             onClick={incrementTacoNumber}
           >Add more!</Button>
           <Button
-            content="Review Order"
+            content="Confirm Order"
             size="medium"
             icon="arrow circle right"
             onClick={toggleOrderState}

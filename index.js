@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import WelcomeForm from './components/WelcomeForm';
 import OrderForm from './components/OrderForm';
 import TacoNumberForm from './components/TacoNumberForm'
+import FinalizeOrder from './components/FinalizeOrder'
 import Cart from './components/Cart';
 import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
 
@@ -24,7 +25,7 @@ function App() {
 
   const [order, setOrder] = useState([])
 
-  const [ingredients, setIngredients] = useState()
+  const [ingredients, setIngredients] = useState([])
   const [ingredientCount, setIngredientCount] = useState(0)
   const [currentIngredient, setCurrentIngredient] = useState()
 
@@ -71,8 +72,6 @@ function App() {
     setOrder(currentItems => [...order, multipleSelection])
   }
 
-  //const setMultiple = useCallback((item) => addMultipleItem(item), []);
-
   const incrementIngredient = () => {
     setCurrentIngredient(ingredients[0])
     setIngredients(ingredients.filter(function (element, index) {
@@ -111,7 +110,7 @@ function App() {
       })
   }, [])
 
-    //Sets the initial ingredients
+
   useEffect(() => {
     if (multipleSelection.length > 0) {
       let temp = [...order]
@@ -163,6 +162,9 @@ function App() {
           }
           {startOrder == true && ingredients.length > 0 &&
             <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} addMultipleItem={addMultipleItem} addSingleItem={addSingleItem} />
+          }
+          {startOrder == false && ingredients.length == 0 &&
+            <FinalizeOrder/>
           }
         </Grid.Column>
         <Grid.Column width={6}>

@@ -116,6 +116,7 @@ function App() {
       setOrder(temp)
     }
 
+    //Checks that there are values
     if (multipleSelection.length == 0 && order.length > 0) {
       setOrder(order.filter(function (value, index) {
         if (index != ingredientCount) {

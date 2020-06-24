@@ -157,13 +157,13 @@ function App() {
     <br/>
     <Header as="h2">{title}</Header>
       <Grid columns={2} stackable>
-        <Grid.Column width={startOrder ? 10 : 16}>
-          {startOrder == false && order.length == 0 &&
+        <Grid.Column width={10}>
+          {/*{startOrder == false && order.length == 0 &&
               <GenericForm message={'We specialize in building your dream taco using only the freshest and healthiest ingredients! '}
                 buttonContent={"Start building"}
                 toggleOrderState={changeOrderState} />
           }
-          {/*{startOrder == true && ingredients.length == 0 &&
+          {startOrder == true && ingredients.length == 0 &&
             <TacoNumberForm
               numberOfTacos={tacoNumber}
               incrementTacoNumber={incrementTacoNumber}
@@ -182,11 +182,9 @@ function App() {
         </ShellForm>
 
         </Grid.Column>
-        <Transition visible={startOrder} animation='scale' duration={500}>
           <Grid.Column width={6}>
             <Cart order={order} numberOfTacos={tacoNumber} price={price} />
           </Grid.Column>
-        </Transition>
       </Grid>
     </Container>
   );

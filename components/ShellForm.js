@@ -13,50 +13,60 @@ const ShellForm = ({ currentIngredient, ingredients }) => {
   const [checked, checkToggle] = useState(false)
 
 console.log(ingredients)
-  function optionDecide(type) {
-    return ingredients.map(function (element, index) {
-      return (
-        <Form.Field key={element.id}>
-          <Grid>
-            <Grid.Column width={10}>
-                  <Radio
-                  label={element.name}
-                  name='radioGroup'
-                  value={element.id}
-                  key={element.id}
-                  checked={currentSelection === element.id}
-                  onChange={() => {
-                    setSelection(element.id);
-                    addSingleItem(element);
-                  }}
-                />
-              </Grid.Column>
-            {element.price && element.price > 0 &&
-              <Grid.Column width={6}>
-                <Label color="green" key={element.id}>
-                  <Icon name='dollar' /> {element.price}
-                </Label>
-              </Grid.Column>
-            }
-          </Grid>
-          <Divider />
-        </Form.Field>
-      )
-    })
+  function optionDecide(type, col) {
+    // return ingredients.map(function (element, index) {
+    //   return (
+    //     <Form.Field key={element.id}>
+    //       <Grid>
+    //         <Grid.Column width={10}>
+    //           <Radio
+    //               label={element.name}
+    //               name='radioGroup'
+    //               value={element.id}
+    //               key={element.id}
+    //               checked={currentSelection === element.id}
+    //               onChange={() => {
+    //                 setSelection(element.id);
+    //                 addSingleItem(element);
+    //               }}
+    //             />
+              
+    //         {element.price && element.price > 0 &&
+    //             <Label color="green" key={element.id}>
+    //               <Icon name='dollar' /> {element.price}
+    //             </Label>
+    //         }
+    //         </Grid.Column>
+    //       </Grid>
+    //     </Form.Field>
+    //   )
+    // })
+
+    //Given the number of columns, seperate the ingredients into 
+
+    let colCopy = 0
+    let paginatedIngridients = []
+    while (colCopy < col) {
+      let tempList = []
+      for (let i = 0; i < col; i++) {
+        tempList.push(indridients.shift())
+      }
+      paginatedIngridients.push(tempList)
+      colCopy++
+    }
+    console.log(paginatedIngridients)
   }
 return (
   <div>
     <Segment>
-      <Header as="h3">Shells</Header>
-      <Form>
-        {optionDecide('shells')}
-      </Form>
-      <Button
-        content="Next"
-        size="medium"
-        icon="arrow circle right"
-        labelPosition="right"
-      />
+        <Grid columns='equal'>
+          <Grid.Column width={5}>
+            <Header as="h3">Shells</Header>
+          </Grid.Column>
+          <Grid.Column width={11}>
+            {optionDecide('shells', 2)}
+          </Grid.Column>
+        </Grid>
     </Segment>
   </div>
 )

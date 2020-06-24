@@ -12,7 +12,6 @@ const ShellForm = ({ currentIngredient, ingredients, columns, orderFunction, ord
   const [currentSelection, setSelection] = useState("")
   const [checked, checkToggle] = useState(false)
 
-  console.log(currentSelection)
   function optionDecide(type, col) {
 
     //Given the number of columns, seperate the ingredients into 

@@ -50,13 +50,14 @@ const ShellForm = ({ currentIngredient, ingredients }) => {
       let tempList = []
       //each entry in templist is a column
       tempList.push(ingredients[ingredientPointer])
-      ingredientPointer++
-
+      
+      console.log(tempList)
       if (tempList.length == col) {
         paginatedIngridients.push(tempList)
       }
+      ingredientPointer++
     }
-    console.log(paginatedIngridients)
+    //console.log(paginatedIngridients)
   }
 return (
   <div>

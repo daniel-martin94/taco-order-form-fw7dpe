@@ -12,7 +12,6 @@ const ShellForm = ({ currentIngredient, ingredients }) => {
   const [currentSelection, setSelection] = useState()
   const [checked, checkToggle] = useState(false)
 
-console.log(ingredients)
   function optionDecide(type, col) {
     // return ingredients.map(function (element, index) {
     //   return (
@@ -43,13 +42,12 @@ console.log(ingredients)
     // })
 
     //Given the number of columns, seperate the ingredients into 
-
     let colCopy = 0
     let paginatedIngridients = []
     while (colCopy < col) {
       let tempList = []
       for (let i = 0; i < col; i++) {
-        tempList.push(indridients.shift())
+        tempList.push(ingredients.shift())
       }
       paginatedIngridients.push(tempList)
       colCopy++

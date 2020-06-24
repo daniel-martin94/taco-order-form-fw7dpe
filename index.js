@@ -4,7 +4,7 @@ import GenericForm from './components/GenericForm';
 import OrderForm from './components/OrderForm';
 import TacoNumberForm from './components/TacoNumberForm'
 import Cart from './components/Cart';
-import { Button, Container, Header, Divider, Grid, Segment } from "semantic-ui-react";
+import { Button, Container, Header, Divider, Grid, Segment, Transition } from "semantic-ui-react";
 
 //Ingredients
 import { shells } from './ingredients/shells.json'
@@ -27,7 +27,7 @@ function App() {
   const [ingredientCount, setIngredientCount] = useState(0)
   const [currentIngredient, setCurrentIngredient] = useState()
 
-  const [title, changeTitle] = useState("Welcome to the Taco Shop!");
+  const [title, changeTitle] = useState("Welcome to dpmartin's taco shop!");
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
@@ -146,31 +146,34 @@ function App() {
   }, [order])
   return (
     <Container>
+      <br></br>
       <Header as="h2">{title}</Header>
       <Grid columns={2} stackable>
-        <Grid.Column width={10}>
+        <Grid.Column width={startOrder ? 10 : 16}>
           {startOrder == false && order.length == 0 &&
-            <GenericForm message={'Begin by starting an order below!'}
-              buttonContent={"Let's start an order!"}
-              toggleOrderState={changeOrderState} />
+              <GenericForm message={'We specialize in building your dream taco using only the freshest and healthiest ingredients! '}
+                buttonContent={"Start building"}
+                toggleOrderState={changeOrderState} />
           }
-          {startOrder == true && ingredients.length == 0 &&
+          {/*{startOrder == true && ingredients.length == 0 &&
             <TacoNumberForm
               numberOfTacos={tacoNumber}
               incrementTacoNumber={incrementTacoNumber}
               decrementTacoNumber={decrementTacoNumber}
               toggleOrderState={changeOrderState} />
-          }
+          }*/}
           {startOrder == true && ingredients.length > 0 &&
             <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} addMultipleItem={addMultipleItem} addSingleItem={addSingleItem} />
           }
-          {startOrder == false && ingredients.length == 0 &&
+          {/*{startOrder == false && ingredients.length == 0 &&
             <GenericForm message={'Thank you for your order!'} />
-          }
+          }*/}
         </Grid.Column>
-        <Grid.Column width={6}>
-          <Cart order={order} numberOfTacos={tacoNumber} price={price} />
-        </Grid.Column>
+        <Transition visible={startOrder} animation='scale' duration={500}>
+          <Grid.Column width={6}>
+            <Cart order={order} numberOfTacos={tacoNumber} price={price} />
+          </Grid.Column>
+        </Transition>
       </Grid>
     </Container>
   );

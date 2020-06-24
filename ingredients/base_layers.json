@@ -3,12 +3,7 @@
     {
         "id": "soyrizo",
         "name": "Soyrizo",
-        "price": 100
-    },
-    {
-        "id": "roasted_butternut_squash",
-        "name": "Roasted Butternut Squash",
-        "price": 0.50
+        "price": 1.5
     },
     {
         "id": "baja_beer_battered_fish",
@@ -27,7 +22,7 @@
     },
     {
         "id": "bellpepper",
-        "name": "bellpepper"
+        "name": "Bellpeppers"
     },
     {
         "id": "crock_pot_pulled_pork",
@@ -64,11 +59,6 @@
         "price": 5.0 
     },
     {
-        "id": "overly_seasoned_ground_beef",
-        "name": "Overly Seasoned Ground Beef",
-        "price": 3.0
-    },
-    {
         "id": "chopped_pork",
         "name": "Chopped Pork",
         "price": 3.0
@@ -85,18 +75,13 @@
     },
     {
         "id": "basic_shredded_chicken",
-        "name": "Basic Shredded Chicken",
+        "name": "Shredded Chicken",
         "price": 1.50
     },
     {
         "id": "asian_style_tofu_or_pork_marinade",
-        "name": "Asian Style Tofu or Pork Marinade",
+        "name": "Asian Style Tofu",
         "price": 2.50
-    },
-    {
-        "id": "ground_beef_traditional_us",
-        "name": "Ground Beef (Traditional; US)",
-        "price": 2.25
     },
     {
         "id": "slow_cooked_salsa_verde_chicken",
@@ -114,11 +99,6 @@
         "price": 0.50
     },
     {
-        "id": "better_than_powder_groundbeef",
-        "name": "Better Than Powder Groundbeef",
-        "price": 1.0
-    },
-    {
         "id": "delengua_beef_tongue",
         "name": "Delengua (Beef Tongue)",
         "price": 2.50
@@ -134,28 +114,8 @@
         "price": 3.0
     },
     {
-        "id": "taco_de_rajas_poblanas",
-        "name": "Taco de rajas poblanas",
-        "price": 0.25
-    },
-    {
         "id": "bulgar_black_bean_filling",
         "name": "Bulgar Black Bean Filling",
-        "price": 1.0
-    },
-    {
-        "id": "slow_cooked_no_bean_chili",
-        "name": "Slow Cooked No-Bean Chili",
-        "price": 0.75
-    },
-    {
-        "id": "deezthugs_smokey_turkey_tacos",
-        "name": "@deezthugs' Smokey Turkey Tacos",
-        "price": 2.0
-    },
-    {
-        "id": "boiled_ground_beef",
-        "name": "Boiled Ground Beef",
         "price": 1.0
     },
     {
@@ -166,11 +126,6 @@
     {
         "id": "puerco_pibil",
         "name": "Puerco Pibil",
-        "price": 0.50
-    },
-    {
-        "id": "seasoned_lentils",
-        "name": "Seasoned Lentils",
         "price": 0.50
     },
     {

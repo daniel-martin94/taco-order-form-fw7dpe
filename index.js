@@ -44,12 +44,14 @@ function App() {
     setTacoNumber(tacoNumber - 1)
   }
 
-  function addSingleItem(value) {
-    //This removes the last item AND return the original array. This is only for radio menu items. 
-    if (order.length > ingredientCount) {
-      setOrder(order.length = order.length - 1)
+  function addSingleItem(value, index) {
+    let tempOrder = [...order]
+    if (tempOrder[index] != undefined) {
+      tempOrder.splice(index, 1, value)
+    } else {
+      tempOrder[index] = value
     }
-    setOrder(currentOrder => [...order, value])
+    setOrder(tempOrder)
   }
 
   function addMultipleItem(item) {
@@ -83,13 +85,6 @@ function App() {
 
 
   };
-
-  function formVisibility() {
-    if(startOrder == false && order.length == 0) {
-      return true
-    }
-    return false
-  }
   //Sets the initial ingredients
   useEffect(() => {
     setIngredients([
@@ -152,6 +147,7 @@ function App() {
       setPrice(tempPrice * tacoNumber)
     }
   }, [order])
+  console.log(order)
   return (
     <Container>
     <br/>
@@ -179,13 +175,29 @@ function App() {
           }*/}
 
 
-        <ShellForm ingredients={shells} currentIngredient={'shells'} columns={2}  orderFunction={addSingleItem}>
+        <ShellForm key={0} ingredients={shells} currentIngredient={'shells'} columns={2}  orderFunction={addSingleItem} orderIndex={0}>
         </ShellForm>
+
         <Divider/>
 
-        <ShellForm ingredients={base_layers} currentIngredient={'base_layers'} columns={2}  orderFunction={addSingleItem}>
+       <ShellForm ingredients={base_layers} currentIngredient={'base_layers'} columns={2}  orderFunction={addSingleItem} orderIndex={1}>
         </ShellForm>
 
+        <Divider/>
+
+        <ShellForm ingredients={seasonings} currentIngredient={'seasonings'} columns={2}  orderFunction={addMultipleItem} orderIndex={3}>
+        </ShellForm>
+
+        <Divider/>
+      {/*} 
+        <ShellForm ingredients={mixins} currentIngredient={'mixins'} columns={2}  orderFunction={addSingleItem}>
+        </ShellForm>
+
+        <Divider/>
+
+        <ShellForm ingredients={condiments} currentIngredient={'condiments'} columns={2}  orderFunction={addSingleItem}>
+        </ShellForm>
+*/}
         </Grid.Column>
           <Grid.Column width={6}>
             <Cart order={order} numberOfTacos={tacoNumber} price={price} />

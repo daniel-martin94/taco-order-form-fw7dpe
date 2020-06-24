@@ -45,19 +45,21 @@ const ShellForm = ({ currentIngredient, ingredients }) => {
     let colCopy = 0
     let paginatedIngridients = []
     let ingredientPointer = 0
+
     while (ingredientPointer < ingredients.length) {
       //each templist represents a row on the grid
       let tempList = []
       //each entry in templist is a column
-      tempList.push(ingredients[ingredientPointer])
+      for(let i = 0; i < col; i++) {
+        tempList.push(ingredients[ingredientPointer])
+        ingredientPointer++
+      }
       
-      console.log(tempList)
       if (tempList.length == col) {
         paginatedIngridients.push(tempList)
       }
-      ingredientPointer++
     }
-    //console.log(paginatedIngridients)
+    console.log(paginatedIngridients)
   }
 return (
   <div>

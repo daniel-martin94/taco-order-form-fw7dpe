@@ -156,6 +156,7 @@ function App() {
     <Container>
     <br/>
     <Header as="h2">{title}</Header>
+    
       <Grid columns={2} stackable>
         <Grid.Column width={10}>
           {/*{startOrder == false && order.length == 0 &&
@@ -178,7 +179,11 @@ function App() {
           }*/}
 
 
-        <ShellForm ingredients={shells} currentIngredient={'shells'}>
+        <ShellForm ingredients={shells} currentIngredient={'shells'} columns={2}  orderFunction={addSingleItem}>
+        </ShellForm>
+        <Divider/>
+
+        <ShellForm ingredients={base_layers} currentIngredient={'base_layers'} columns={2}  orderFunction={addSingleItem}>
         </ShellForm>
 
         </Grid.Column>

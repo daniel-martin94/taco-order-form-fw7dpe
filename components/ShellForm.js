@@ -7,43 +7,15 @@ import questions from './questions'
 import { Button, Header, Divider, Grid, Segment, Form, Radio, Icon, Label, Checkbox } from "semantic-ui-react";
 
 
-const ShellForm = ({ currentIngredient, ingredients }) => {
+const ShellForm = ({ currentIngredient, ingredients, columns, orderFunction }) => {
 
   const [currentSelection, setSelection] = useState()
   const [checked, checkToggle] = useState(false)
-  console.log(ingredients)
   function optionDecide(type, col) {
-    // return ingredients.map(function (element, index) {
-    //   return (
-    //     <Form.Field key={element.id}>
-    //       <Grid>
-    //         <Grid.Column width={10}>
-    //           <Radio
-    //               label={element.name}
-    //               name='radioGroup'
-    //               value={element.id}
-    //               key={element.id}
-    //               checked={currentSelection === element.id}
-    //               onChange={() => {
-    //                 setSelection(element.id);
-    //                 addSingleItem(element);
-    //               }}
-    //             />
-              
-    //         {element.price && element.price > 0 &&
-    //             <Label color="green" key={element.id}>
-    //               <Icon name='dollar' /> {element.price}
-    //             </Label>
-    //         }
-    //         </Grid.Column>
-    //       </Grid>
-    //     </Form.Field>
-    //   )
-    // })
 
     //Given the number of columns, seperate the ingredients into 
     let colCopy = 0
-    let paginatedIngridients = []
+    let paginatedIngredients = []
     let ingredientPointer = 0
 
     while (ingredientPointer < ingredients.length) {
@@ -56,23 +28,49 @@ const ShellForm = ({ currentIngredient, ingredients }) => {
       }
       
       if (tempList.length == col) {
-        paginatedIngridients.push(tempList)
+        paginatedIngredients.push(tempList)
       }
     }
-    console.log(paginatedIngridients)
+    return (
+      <Grid columns={col}>
+        {paginatedIngredients.map(function (element, index) {
+            return (<Grid.Row>
+              {element.map(function (e, i) {
+                if (e !== undefined) {
+                  return (
+                    <Grid.Column>
+                      <Radio
+                        label={(e.price && e.price > 0) ? e.name + " + $" + e.price : e.name}
+                        name='radioGroup'
+                        value={e.id}
+                        key={e.id}
+                        checked={currentSelection === e.id}
+                        onChange={() => {
+                        setSelection(e.id);
+                        orderFunction(e);
+                      }}
+                      />
+                  </Grid.Column>
+                  )
+                }
+              })}
+            </Grid.Row>
+            )
+        })}
+      </Grid>
+    )
+
   }
 return (
   <div>
-    <Segment>
         <Grid columns='equal'>
           <Grid.Column width={5}>
-            <Header as="h3">Shells</Header>
+            <Header as="h3">{optionDecide(currentIngredient)}</Header>
           </Grid.Column>
           <Grid.Column width={11}>
-            {optionDecide('shells', 2)}
+            {optionDecide(currentIngredient, columns)}
           </Grid.Column>
         </Grid>
-    </Segment>
   </div>
 )
 }

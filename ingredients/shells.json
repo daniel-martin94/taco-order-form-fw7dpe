@@ -6,19 +6,19 @@
       },
       {
           "id": "hard_corn_shells_traditional_us",
-          "name": "Hard Corn Shells (Traditional; US)"
+          "name": "Hard Corn Shells"
       },
       {
           "id": "naan",
-          "name": "naan"
+          "name": "Naan"
       },
       {
           "id": "flour_Tortillas",
-          "name": "Flour tortillas"
+          "name": "Flour Tortillas"
       },
       {
           "id": "spinach_Tortillas",
-          "name": "Spinach tortillas",
+          "name": "Spinach Tortillas",
           "price": 1.0
       }
   ]

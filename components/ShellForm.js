@@ -44,7 +44,7 @@ const ShellForm = ({ currentIngredient, ingredients }) => {
     //Given the number of columns, seperate the ingredients into 
     let colCopy = 0
     let paginatedIngridients = []
-    while (colCopy < col) {
+    while (colCopy < col && ingredients.length > 0) {
       let tempList = []
       for (let i = 0; i < col; i++) {
         tempList.push(ingredients.shift())
@@ -52,7 +52,7 @@ const ShellForm = ({ currentIngredient, ingredients }) => {
       paginatedIngridients.push(tempList)
       colCopy++
     }
-    console.log(paginatedIngridients)
+    // console.log(paginatedIngridients)
   }
 return (
   <div>

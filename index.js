@@ -60,26 +60,22 @@ function App() {
       order[index] = [item]
     } else {
       let tempID = item.id
-      let tempOptions = [...order]
-      console.log("Before")
-      console.log(tempOptions[index])
+      let tempOrder = [...order]
     
-      //Deleted an item if it exists in the multiple selection
-      if (tempOptions[index].some(item => item.id === tempID)) {
-        console.log("sadadadsd")
-        console.log(item)
-        return tempOptions[index].filter(function (value, index) {
+      //Delete an item if it exists in the order
+      if (tempOrder[index].some(item => item.id === tempID)) {
+        let result = tempOrder[index].filter(function (value) {
           if (value.id != item.id) {
+            console.log(value)
             return value
           }
         })
-        // console.log("After")
-        // console.log(tempOptions[index])
+        tempOrder[index] = result
       } else {
         //Add the item
-        tempOptions[index].push(item)
+        tempOrder[index].push(item)
       }
-      setOrder(tempOptions)
+      setOrder(tempOrder)
     }
   }
 
@@ -184,12 +180,12 @@ function App() {
             <GenericForm message={'Thank you for your order!'} />
           }*/}
 
-{/*
+
         <ShellForm key={0} ingredients={shells} currentIngredient={'shells'} columns={2}  orderFunction={addSingleItem} orderIndex={0}>
         </ShellForm>
 
         <Divider/>
-*/}
+
        <ShellForm ingredients={base_layers} currentIngredient={'base_layers'} columns={2}  orderFunction={addSingleItem} orderIndex={1}>
         </ShellForm>
 
@@ -197,17 +193,15 @@ function App() {
 
         <ShellForm ingredients={seasonings} currentIngredient={'seasonings'} columns={2}  orderFunction={addMultipleItem} orderIndex={2}>
         </ShellForm>
-{/*
+
         <Divider/>
-      } 
-        <ShellForm ingredients={mixins} currentIngredient={'mixins'} columns={2}  orderFunction={addSingleItem}>
-        </ShellForm>
+       
+        <ShellForm ingredients={mixins} currentIngredient={'mixins'} columns={2}  orderFunction={addMultipleItem} orderIndex={3}> </ShellForm>
 
         <Divider/>
 
-        <ShellForm ingredients={condiments} currentIngredient={'condiments'} columns={2}  orderFunction={addSingleItem}>
-        </ShellForm>
-*/}
+        <ShellForm ingredients={condiments} currentIngredient={'condiments'} columns={2}  orderFunction={addMultipleItem} orderIndex={4}> </ShellForm>
+
         </Grid.Column>
           <Grid.Column width={6}>
             <Cart order={order} numberOfTacos={tacoNumber} price={price} />

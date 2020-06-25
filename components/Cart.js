@@ -12,7 +12,7 @@ const Cart = ({ order, numberOfTacos, price}) => {
         if (element.length > 0) {
           return (
             <List.Item key={element.id}>
-              Optional Items
+              
             <List.List>
                 {element.map(function (item) {
                   return (

@@ -20,7 +20,7 @@
     },
     {
         "id": "tomatoes_traditional_us",
-        "name": "Tomatoes (Traditional; US)"
+        "name": "Tomatoes)"
     },
     {
         "id": "corn_salad",
@@ -28,11 +28,11 @@
     },
     {
         "id": "cheese_traditional_us",
-        "name": "Cheese (Traditional; US)"
+        "name": "Cheese"
     },
     {
         "id": "lettuce_traditional_us",
-        "name": "Lettuce (Traditional; US)"
+        "name": "Lettuce"
     },
     {
         "id": "veggies_for_fish_tacos",

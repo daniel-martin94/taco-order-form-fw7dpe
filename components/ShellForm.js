@@ -11,8 +11,6 @@ const ShellForm = ({ currentIngredient, ingredients, columns, orderFunction, ord
 
   const [currentSelection, setSelection] = useState("")
   const [checked, checkToggle] = useState(false)
-  console.log("Order Index:" + orderIndex)
-  console.log("currentSelection:" + currentSelection)
 
   function optionDecide(type, col) {
 

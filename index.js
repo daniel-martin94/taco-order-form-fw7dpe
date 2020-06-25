@@ -55,36 +55,46 @@ function App() {
   }
 
   function addMultipleItem(item, index) {
-    let tempID = item.id
-    // //Deleted an item if it exisits in the multiple selection
-    if (multipleSelection.some(item => item.id === tempID)) {
-      setMultipleSelection(multipleSelection.filter(function (value, index) {
-        if (value.id != item.id) {
-          return value
-        }
-      }))
+
+    if (order[index] === undefined || order[index] == []) {
+      order[index] = [item]
     } else {
-      //Add the item
-      setMultipleSelection(currentSelections => [...currentSelections, item])
+      let tempID = item.id
+      let tempOptions = [...order]
+      console.log("Before")
+      console.log(tempOptions[index])
+    
+      //Deleted an item if it exists in the multiple selection
+      if (tempOptions[index].some(item => item.id === tempID)) {
+        console.log("sadadadsd")
+        console.log(item)
+        return tempOptions[index].filter(function (value, index) {
+          if (value.id != item.id) {
+            return value
+          }
+        })
+        // console.log("After")
+        // console.log(tempOptions[index])
+      } else {
+        //Add the item
+        tempOptions[index].push(item)
+      }
+      setOrder(tempOptions)
     }
-    if (order.length > ingredientCount) {
-      setOrder(order.length = order.length - 1)
-    }
-    setOrder(currentItems => [...order, multipleSelection])
   }
 
-  const incrementIngredient = () => {
-    setCurrentIngredient(ingredients[0])
-    setIngredients(ingredients.filter(function (element, index) {
-      if (index !== 0) {
-        return element
-      }
-    }))
-    setMultipleSelection([])
-    setIngredientCount(ingredientCount + 1);
+  // const incrementIngredient = () => {
+  //   setCurrentIngredient(ingredients[0])
+  //   setIngredients(ingredients.filter(function (element, index) {
+  //     if (index !== 0) {
+  //       return element
+  //     }
+  //   }))
+  //   setMultipleSelection([])
+  //   setIngredientCount(ingredientCount + 1);
 
 
-  };
+  // };
   //Sets the initial ingredients
   useEffect(() => {
     setIngredients([
@@ -147,7 +157,7 @@ function App() {
       setPrice(tempPrice * tacoNumber)
     }
   }, [order])
-
+  console.log(order)
   return (
     <Container>
     <br/>
@@ -174,18 +184,18 @@ function App() {
             <GenericForm message={'Thank you for your order!'} />
           }*/}
 
-
+{/*
         <ShellForm key={0} ingredients={shells} currentIngredient={'shells'} columns={2}  orderFunction={addSingleItem} orderIndex={0}>
         </ShellForm>
 
         <Divider/>
-
+*/}
        <ShellForm ingredients={base_layers} currentIngredient={'base_layers'} columns={2}  orderFunction={addSingleItem} orderIndex={1}>
         </ShellForm>
 
         <Divider/>
 
-        <ShellForm ingredients={seasonings} currentIngredient={'seasonings'} columns={2}  orderFunction={addMultipleItem} orderIndex={3}>
+        <ShellForm ingredients={seasonings} currentIngredient={'seasonings'} columns={2}  orderFunction={addMultipleItem} orderIndex={2}>
         </ShellForm>
 {/*
         <Divider/>

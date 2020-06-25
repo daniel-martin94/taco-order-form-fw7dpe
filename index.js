@@ -54,7 +54,7 @@ function App() {
     setOrder(tempOrder)
   }
 
-  function addMultipleItem(item) {
+  function addMultipleItem(item, index) {
     let tempID = item.id
     // //Deleted an item if it exisits in the multiple selection
     if (multipleSelection.some(item => item.id === tempID)) {
@@ -184,10 +184,10 @@ function App() {
         </ShellForm>
 
         <Divider/>
-{/*
+
         <ShellForm ingredients={seasonings} currentIngredient={'seasonings'} columns={2}  orderFunction={addMultipleItem} orderIndex={3}>
         </ShellForm>
-
+{/*
         <Divider/>
       } 
         <ShellForm ingredients={mixins} currentIngredient={'mixins'} columns={2}  orderFunction={addSingleItem}>

@@ -21,28 +21,16 @@ import './style.css';
 
 function App() {
   const [startOrder, toggleOrder] = useState(false);
-
   const [order, setOrder] = useState([])
-
   const [ingredients, setIngredients] = useState([])
-  const [ingredientCount, setIngredientCount] = useState(0)
-  const [currentIngredient, setCurrentIngredient] = useState()
 
   const [title, changeTitle] = useState("Welcome to dpmartin's taco shop!");
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
-  const [multipleSelection, setMultipleSelection] = useState([])
-
   const [tacoNumber, setTacoNumber] = useState(1)
   const [price, setPrice] = useState(0)
 
-  const incrementTacoNumber = () => {
-    setTacoNumber(tacoNumber + 1)
-  }
-  const decrementTacoNumber = () => {
-    setTacoNumber(tacoNumber - 1)
-  }
 
   function addSingleItem(value, index) {
     let tempOrder = [...order]
@@ -79,61 +67,12 @@ function App() {
     }
   }
 
-  // const incrementIngredient = () => {
-  //   setCurrentIngredient(ingredients[0])
-  //   setIngredients(ingredients.filter(function (element, index) {
-  //     if (index !== 0) {
-  //       return element
-  //     }
-  //   }))
-  //   setMultipleSelection([])
-  //   setIngredientCount(ingredientCount + 1);
-
-
-  // };
-  //Sets the initial ingredients
-  useEffect(() => {
-    setIngredients([
-      {
-        'type': 'base_layers',
-        'data': base_layers
-      },
-      {
-        'type': 'seasonings',
-        'data': seasonings
-      },
-      {
-        'type': 'mixins',
-        'data': mixins
-      },
-      {
-        'type': 'condiments',
-        'data': condiments
-      },
-    ]),
-      setCurrentIngredient({
-        'type': 'shells',
-        'data': shells
-      })
-  }, [])
-
-
-  useEffect(() => {
-    if (multipleSelection.length > 0) {
-      let temp = [...order]
-      temp[ingredientCount] = multipleSelection
-      setOrder(temp)
+  function determineVisibility() {
+    if (startOrder == false && order.length == 0) {
+      return true
     }
-
-    //Checks that there are values
-    if (multipleSelection.length == 0 && order.length > 0) {
-      setOrder(order.filter(function (value, index) {
-        if (index != ingredientCount) {
-          return value
-        }
-      }))
-    }
-  }, [multipleSelection])
+    return false
+  }
 
   useEffect(() => {
     if (order.length > 0) {
@@ -153,38 +92,42 @@ function App() {
       setPrice(tempPrice * tacoNumber)
     }
   }, [order])
-  console.log(order)
   return (
     <Container>
     <br/>
     <Header as="h2">{title}</Header>
-    
+
+    <Transition visible={determineVisibility} animation='fade left' duration={1000}>
+              <GenericForm message={'We specialize in building your dream taco using only the freshest and healthiest ingredients! '}
+                buttonContent={"Start building"}
+                toggleOrderState={changeOrderState} />
+      </Transition>
+      
       <Grid columns={2} stackable>
+      <Transition visible={startOrder} animation='fade left' duration={1000}>
         <Grid.Column width={10}>
-          {/*{startOrder == false && order.length == 0 &&
+        {/*}
+          {startOrder == false && order.length == 0 &&
               <GenericForm message={'We specialize in building your dream taco using only the freshest and healthiest ingredients! '}
                 buttonContent={"Start building"}
                 toggleOrderState={changeOrderState} />
           }
+          
           {startOrder == true && ingredients.length == 0 &&
             <TacoNumberForm
               numberOfTacos={tacoNumber}
               incrementTacoNumber={incrementTacoNumber}
               decrementTacoNumber={decrementTacoNumber}
               toggleOrderState={changeOrderState} />
-          }
-          {startOrder == true && ingredients.length > 0 &&
-            <OrderForm currentIngredient={currentIngredient} changeCurrentIngredient={incrementIngredient} addMultipleItem={addMultipleItem} addSingleItem={addSingleItem} />
-          }
+
           {/*{startOrder == false && ingredients.length == 0 &&
             <GenericForm message={'Thank you for your order!'} />
           }*/}
-
-
-        <ShellForm key={0} ingredients={shells} currentIngredient={'shells'} columns={2}  orderFunction={addSingleItem} orderIndex={0}>
-        </ShellForm>
-
-        <Divider/>
+          <ShellForm key={0} ingredients={shells} currentIngredient={'shells'} columns={2}  orderFunction={addSingleItem} orderIndex={0}>
+          </ShellForm>
+          <Divider/>
+          
+        
 
        <ShellForm ingredients={base_layers} currentIngredient={'base_layers'} columns={2}  orderFunction={addSingleItem} orderIndex={1}>
         </ShellForm>
@@ -201,11 +144,15 @@ function App() {
         <Divider/>
 
         <ShellForm ingredients={condiments} currentIngredient={'condiments'} columns={2}  orderFunction={addMultipleItem} orderIndex={4}> </ShellForm>
-
+      
+        
         </Grid.Column>
+        </Transition>
+        <Transition visible={startOrder} animation='fade left' duration={500}>
           <Grid.Column width={6}>
             <Cart order={order} numberOfTacos={tacoNumber} price={price} />
           </Grid.Column>
+          </Transition>
       </Grid>
     </Container>
   );

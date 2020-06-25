@@ -147,7 +147,7 @@ function App() {
       setPrice(tempPrice * tacoNumber)
     }
   }, [order])
-  console.log(order)
+
   return (
     <Container>
     <br/>
@@ -184,12 +184,12 @@ function App() {
         </ShellForm>
 
         <Divider/>
-
+{/*
         <ShellForm ingredients={seasonings} currentIngredient={'seasonings'} columns={2}  orderFunction={addMultipleItem} orderIndex={3}>
         </ShellForm>
 
         <Divider/>
-      {/*} 
+      } 
         <ShellForm ingredients={mixins} currentIngredient={'mixins'} columns={2}  orderFunction={addSingleItem}>
         </ShellForm>
 

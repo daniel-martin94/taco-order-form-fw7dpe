@@ -11,6 +11,8 @@ const ShellForm = ({ currentIngredient, ingredients, columns, orderFunction, ord
 
   const [currentSelection, setSelection] = useState("")
   const [checked, checkToggle] = useState(false)
+  console.log("Order Index:" + orderIndex)
+  console.log("currentSelection:" + currentSelection)
 
   function optionDecide(type, col) {
 
@@ -43,18 +45,18 @@ const ShellForm = ({ currentIngredient, ingredients, columns, orderFunction, ord
                   return (
                     <Grid.Column>
                     {(type == 'shells' || type == 'base_layers') && 
-                      <Radio
-                        label={(e.price && e.price > 0) ? e.name + " + $" + e.price : e.name}
-                        name='radioGroup'
-                        value={e.id}
-                        key={e.id}
-                        checked={currentSelection === e.id}
-                        onChange={() => {
-                          console.log(e.id)
-                          setSelection(e.id);
-                          orderFunction(e, orderIndex);
-                      }}
-                      />}
+                      
+                      <div class="ui radio checkbox">
+                        <input type="radio" value={e.id}
+                        checked={e.id === currentSelection} 
+                        onChange={() => { 
+                        setSelection(e.id)
+                        orderFunction(e, orderIndex)}} />
+                        <label>{(e.price && e.price > 0) ? ' ' + e.name + ' +$' + e.price : ' ' + e.name}
+                        </label>
+                        
+                      </div>
+                      }
 
                     { 
                       (type != 'shells' && type != 'base_layers') &&
@@ -80,8 +82,6 @@ const ShellForm = ({ currentIngredient, ingredients, columns, orderFunction, ord
   }
 return (
   <div>
-
-        {currentSelection}
         <Grid columns='equal'>
           <Grid.Column width={5}>
             <Header as="h3">{questions[currentIngredient]}</Header>

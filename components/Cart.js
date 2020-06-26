@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { render } from 'react-dom'
 import '../style.css'
 
-import { Button, Container, Header, Divider, Grid, Segment, Icon, Form, Label, List, Menu, Image } from "semantic-ui-react";
+import { Button, Container, Header, Divider, Grid, Segment, Icon, Form, Label, List, Menu, Image, Transition } from "semantic-ui-react";
 
 const Cart = ({ order, numberOfTacos, price, isMobile, incrementTacoNumber, decrementTacoNumber }) => {
 
@@ -115,6 +115,16 @@ const Cart = ({ order, numberOfTacos, price, isMobile, incrementTacoNumber, decr
           </Grid.Column>
         </Grid>
       </Segment>
+      
+      <Transition visible={(order[0] != undefined && order[1] != undefined)} animation='fade left' duration={1000}>
+        <Button
+                floated='right'
+                content="Place Order"
+                size="medium"
+                icon="arrow circle right"
+                labelPosition="right"
+        />
+      </Transition>
     </div>
   )
 }

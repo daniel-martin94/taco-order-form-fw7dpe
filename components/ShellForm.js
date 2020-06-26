@@ -44,7 +44,7 @@ const ShellForm = ({ currentIngredient, ingredients, columns, orderFunction, ord
                     <Grid.Column>
                     {(type == 'shells' || type == 'base_layers') && 
                       
-                      <div class="ui radio checkbox">
+                      <div className="ui radio checkbox">
                         <input type="radio" value={e.id}
                         checked={e.id === currentSelection} 
                         onChange={() => { 

@@ -24,7 +24,7 @@ function App() {
   const [order, setOrder] = useState([])
   const [ingredients, setIngredients] = useState([])
 
-  const [title, changeTitle] = useState("Welcome to dpmartin's taco shop!");
+  const [title, changeTitle] = useState("Welcome to Dream Taco Shop!");
 
   const changeOrderState = () => toggleOrder(!startOrder)
 
@@ -142,18 +142,25 @@ function App() {
         </Transition>
 
         <Transition visible={!startOrder} animation='fade left' duration={1000}>
-        <div>
-          <br/>
-          <p>
-            Welcome to Dream Taco Shop, the number one shop for building your dream taco. We're dedicated to giving you the highest quality taco you can imagine, with a focus on fresh ingredients, amazing service, and life-changing flavor.
+          <div>
+            <br />
+            <p>
+              Welcome to Dream Taco Shop, the number one shop for building your dream taco. We're dedicated to giving you the highest quality taco you can imagine, with a focus on fresh ingredients, amazing service, and life-changing flavor.
           </p>
-          <p>
-            Founded in 1995 by Daniel Martin, the Dream Taco Shop has come a long way from its beginnings operating out of a garage, serving tacos to his neighborhood. When Daniel first started out, his passion for delicious tacos and creative food drove him to quit his job, and gave him the impetus to turn hard work and inspiration into to a booming restaurant. We now serve customers all over the San Francisco Bay Area, and are thrilled to be a part of the innovative wing of the fast food industry.
+            <p>
+              Founded in 1995 by Daniel Martin, the Dream Taco Shop has come a long way from its beginnings operating out of a garage, serving tacos to his neighborhood. When Daniel first started out, his passion for delicious tacos and creative food drove him to quit his job, and gave him the impetus to turn hard work and inspiration into to a booming restaurant. We now serve customers all over the San Francisco Bay Area, and are thrilled to be a part of the innovative wing of the fast food industry.
+  
+              We hope you enjoy your tacos as much as we enjoy building them to you. If you have any questions or comments, please don't hesitate to contact us.
+          </p>
 
-            We hope you enjoy your tacos as much as we enjoy building them to you. If you have any questions or comments, please don't hesitate to contact us.
-          </p>
-          <Button onClick={changeOrderState}> Start Building!
-          </Button>
+            <Button
+              floated='right'
+              content="Start Building!"
+              size="medium"
+              icon="arrow circle right"
+              onClick={changeOrderState}
+              labelPosition="right"
+            />
           </div>
         </Transition>
 

@@ -21,7 +21,7 @@ import './style.css';
 function App() {
   const [startOrder, toggleOrder] = useState(false);
   const [order, setOrder] = useState([])
-  const [ingredients, setIngredients] = useState([])
+  const [ingredients, setIngredients] = useState([shells, base_layers, seasonings, mixins, condiments])
   const [title, changeTitle] = useState("Welcome to Dream Taco Shop!");
   const changeOrderState = () => toggleOrder(!startOrder)
   const [tacoNumber, setTacoNumber] = useState(1)
@@ -34,6 +34,22 @@ function App() {
   const changeOrderState = () => toggleOrder(!startOrder)
   const incrementTacoNumber = () => setTacoNumber(tacoNumber + 1)
   const decrementTacoNumber = () => setTacoNumber(tacoNumber - 1)
+
+    var ingredientTypes = {
+      0: "shells",
+      1: "base_layers",
+      2: "seasonings",
+      3: "mixins",
+      4: 'condiments!'
+  }
+
+    var ingredientFunction = {
+      0: addSingleItem,
+      1: addSingleItem,
+      2: addMultipleItem,
+      3: addMultipleItem,
+      4: addMultipleItem
+  }
 
 
   function addSingleItem(value, index) {
@@ -118,38 +134,18 @@ useEffect(() => {
       <Grid columns={2} stackable>
         <Transition visible={startOrder} animation='fade left' duration={1000}>
           <Grid.Column width={11}>
-            {/*}
-          
-          {startOrder == true && ingredients.length == 0 &&
-            <TacoNumberForm
-              numberOfTacos={tacoNumber}
-              incrementTacoNumber={incrementTacoNumber}
-              decrementTacoNumber={decrementTacoNumber}
-              toggleOrderState={changeOrderState} />
 
-          {/*{startOrder == false && ingredients.length == 0 &&
-            <GenericForm message={'Thank you for your order!'} />
-          }*/}
-            <IngredientForm key={0} ingredients={shells} currentIngredient={'shells'} columns={(isMobile ? 2 : 3)} orderFunction={addSingleItem} orderIndex={0}>
-            </IngredientForm>
-            <Divider />
-            <IngredientForm ingredients={base_layers} currentIngredient={'base_layers'} columns={(isMobile ? 2 : 3)} orderFunction={addSingleItem} orderIndex={1}>
-            </IngredientForm>
-
-            <Divider />
-
-            <IngredientForm ingredients={seasonings} currentIngredient={'seasonings'} columns={(isMobile ? 2 : 3)} orderFunction={addMultipleItem} orderIndex={2}>
-            </IngredientForm>
-
-            <Divider />
-
-            <IngredientForm ingredients={mixins} currentIngredient={'mixins'} columns={(isMobile ? 2 : 3)} orderFunction={addMultipleItem} orderIndex={3}> </IngredientForm>
-
-            <Divider />
-
-            <IngredientForm ingredients={condiments} currentIngredient={'condiments'} columns={(isMobile ? 2 : 3)} orderFunction={addMultipleItem} orderIndex={4}> </IngredientForm>
-
-
+          {
+            ingredients.map(function(element, index) {
+              return (
+                <div>
+                    <IngredientForm key={index} ingredients={element} currentIngredient={ingredientTypes[index]} columns={(isMobile ? 2 : 3)} orderFunction={ingredientFunction[index]} orderIndex={index}>
+                    </IngredientForm>
+                   <Divider />
+                </div>
+              )
+            })
+          }
           </Grid.Column>
         </Transition>
 

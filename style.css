@@ -5,3 +5,7 @@ h1, p {
 .desktopCart {
   position: fixed;
 }
+
+.singleMenuTitle {
+  margin-bottom: 0.5em;
+}

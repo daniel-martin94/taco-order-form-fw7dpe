@@ -45,9 +45,12 @@ function App() {
   }
 
   function addMultipleItem(item, index) {
-
+    console.log(item)
+    console.log(index)
     if (order[index] === undefined || order[index] == []) {
-      order[index] = [item]
+      let tempOrder = [...order]
+      tempOrder[index] = [item]
+      setOrder(tempOrder)
     } else {
       let tempID = item.id
       let tempOrder = [...order]
@@ -105,7 +108,7 @@ useEffect(() => {
       toggleMobile(false)
     }
 }, [width]);
-
+  console.log(order)
   return (
     <Container>
       <br />

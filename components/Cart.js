@@ -6,6 +6,14 @@ import { Button, Container, Header, Divider, Grid, Segment, Icon, Form, Label, L
 
 const Cart = ({ order, numberOfTacos, price, isMobile }) => {
 
+  var cartTitles = {
+    0: "Shell",
+    1: "Meat",
+    2: "Seasonings",
+    3: "Mixins",
+    4: 'Condiments!'
+  }      
+
   function displayItem() {
     return order.map(function (element, index) {
       //This cover multiple choice items
@@ -13,7 +21,9 @@ const Cart = ({ order, numberOfTacos, price, isMobile }) => {
         if (element.length > 0) {
           return (
             <List.Item key={element.id}>
-              
+            <Header as='h5'>
+              {cartTitles[index]}
+            </Header>
             <List.List>
                 {element.map(function (item) {
                   return (
@@ -41,6 +51,9 @@ const Cart = ({ order, numberOfTacos, price, isMobile }) => {
       } else if (!Array.isArray(element)) {
       return (
         <List.Item key={element.id}>
+        <Header as='h5' className={'singleMenuTitle'}>
+              {cartTitles[index]}
+          </Header>
           <Grid>
             <Grid.Column width={10}>
               <div> {element.name} </div>

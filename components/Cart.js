@@ -51,9 +51,10 @@ const Cart = ({ order, numberOfTacos, price, isMobile }) => {
       } else if (!Array.isArray(element)) {
       return (
         <List.Item key={element.id}>
-        <Header as='h5' className={'singleMenuTitle'}>
-              {cartTitles[index]}
+        <Header as='h5'>
+              {cartTitles[index] + "sdsf"}
           </Header>
+          <div className='singleMenuTitle'></div>
           <Grid>
             <Grid.Column width={10}>
               <div> {element.name} </div>
@@ -71,7 +72,6 @@ const Cart = ({ order, numberOfTacos, price, isMobile }) => {
       )
     }})
   }
-  // className={!isMobile ? 'desktopCart' : ""}>
   return (
     <div>
       <Segment> 
@@ -83,10 +83,16 @@ const Cart = ({ order, numberOfTacos, price, isMobile }) => {
         </List>
       </Segment>
       <Segment>
-        Total{' '}
-        <Label circular color="green">
-          $ {price * numberOfTacos}
-        </Label>
+          <Grid>
+            <Grid.Column width={10}>
+              <div> Total </div>
+            </Grid.Column>
+              <Grid.Column width={6}>
+                <Label circular color="green">
+                  $ {price * numberOfTacos}
+                </Label>
+              </Grid.Column>
+          </Grid>
       </Segment>
     </div>
   )

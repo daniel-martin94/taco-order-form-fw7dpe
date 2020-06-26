@@ -61,7 +61,7 @@ const Cart = ({ order, numberOfTacos, price, isMobile }) => {
   // className={!isMobile ? 'desktopCart' : ""}>
   return (
     <div>
-      <Segment className={!isMobile ? 'fixed' : ""}> 
+      <Segment> 
         <Header as="h3">Cart</Header>
         <Divider />
         <List>

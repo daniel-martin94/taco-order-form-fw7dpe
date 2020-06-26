@@ -32,10 +32,14 @@ function App() {
   const [width, setWidth] = useState(window.innerWidth);
 
   const changeOrderState = () => toggleOrder(!startOrder)
+  const incrementTacoNumber = () => setTacoNumber(tacoNumber + 1)
+  const decrementTacoNumber = () => setTacoNumber(tacoNumber - 1)
 
 
   function addSingleItem(value, index) {
     let tempOrder = [...order]
+    tempOrder[index] = undefined
+    setOrder(tempOrder)
     if (tempOrder[index] != undefined) {
       tempOrder.splice(index, 1, value)
     } else {
@@ -45,8 +49,6 @@ function App() {
   }
 
   function addMultipleItem(item, index) {
-    console.log(item)
-    console.log(index)
     if (order[index] === undefined || order[index] == []) {
       let tempOrder = [...order]
       tempOrder[index] = [item]
@@ -54,7 +56,6 @@ function App() {
     } else {
       let tempID = item.id
       let tempOrder = [...order]
-
       //Delete an item if it exists in the order
       if (tempOrder[index].some(item => item.id === tempID)) {
         let result = tempOrder[index].filter(function (value) {
@@ -89,7 +90,7 @@ function App() {
       })
       setPrice(tempPrice * tacoNumber)
     }
-  }, [order])
+  }, [order, tacoNumber])
 
 //Handles resizing width
 useEffect(() => {
@@ -108,7 +109,7 @@ useEffect(() => {
       toggleMobile(false)
     }
 }, [width]);
-  console.log(order)
+
   return (
     <Container>
       <br />
@@ -154,7 +155,7 @@ useEffect(() => {
 
         <Transition visible={startOrder} animation='fade left' duration={500}>
           <Grid.Column width={5}>
-            <Cart order={order} numberOfTacos={tacoNumber} price={price} isMobile={isMobile}/>
+            <Cart order={order} numberOfTacos={tacoNumber} incrementTacoNumber={incrementTacoNumber} decrementTacoNumber={decrementTacoNumber} price={price} isMobile={isMobile}/>
           </Grid.Column>
         </Transition>
 

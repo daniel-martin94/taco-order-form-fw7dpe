@@ -1,9 +1,8 @@
 import React, { Component, useState, useEffect, useCallback } from 'react';
 import { render } from 'react-dom';
 import GenericForm from './components/GenericForm';
-import OrderForm from './components/OrderForm';
 import TacoNumberForm from './components/TacoNumberForm'
-import ShellForm from './components/ShellForm';
+import IngredientForm from './components/IngredientForm';
 import Cart from './components/Cart';
 import { Button, Container, Header, Divider, Grid, Segment, Transition } from "semantic-ui-react";
 
@@ -23,13 +22,16 @@ function App() {
   const [startOrder, toggleOrder] = useState(false);
   const [order, setOrder] = useState([])
   const [ingredients, setIngredients] = useState([])
-
   const [title, changeTitle] = useState("Welcome to Dream Taco Shop!");
-
   const changeOrderState = () => toggleOrder(!startOrder)
-
   const [tacoNumber, setTacoNumber] = useState(1)
   const [price, setPrice] = useState(0)
+
+  //Determines the users window size and changes layout accordingly
+  const [isMobile, toggleMobile] = useState()
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const changeOrderState = () => toggleOrder(!startOrder)
 
 
   function addSingleItem(value, index) {
@@ -54,7 +56,6 @@ function App() {
       if (tempOrder[index].some(item => item.id === tempID)) {
         let result = tempOrder[index].filter(function (value) {
           if (value.id != item.id) {
-            console.log(value)
             return value
           }
         })
@@ -67,13 +68,7 @@ function App() {
     }
   }
 
-  function determineVisibility() {
-    if (startOrder == false && order.length == 0) {
-      return true
-    }
-    return false
-  }
-
+//Updates price based on ingredients
   useEffect(() => {
     if (order.length > 0) {
       let tempPrice = 0
@@ -92,6 +87,25 @@ function App() {
       setPrice(tempPrice * tacoNumber)
     }
   }, [order])
+
+//Handles resizing width
+useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+});
+
+//Determines if mobile
+useEffect(() => {
+    if (width <= 950) {
+        toggleMobile(true)
+    } else {
+      toggleMobile(false)
+    }
+}, [width]);
+
   return (
     <Container>
       <br />
@@ -99,7 +113,7 @@ function App() {
       <Divider />
       <Grid columns={2} stackable>
         <Transition visible={startOrder} animation='fade left' duration={1000}>
-          <Grid.Column width={10}>
+          <Grid.Column width={11}>
             {/*}
           
           {startOrder == true && ingredients.length == 0 &&
@@ -112,32 +126,32 @@ function App() {
           {/*{startOrder == false && ingredients.length == 0 &&
             <GenericForm message={'Thank you for your order!'} />
           }*/}
-            <ShellForm key={0} ingredients={shells} currentIngredient={'shells'} columns={2} orderFunction={addSingleItem} orderIndex={0}>
-            </ShellForm>
+            <IngredientForm key={0} ingredients={shells} currentIngredient={'shells'} columns={(isMobile ? 2 : 3)} orderFunction={addSingleItem} orderIndex={0}>
+            </IngredientForm>
             <Divider />
-            <ShellForm ingredients={base_layers} currentIngredient={'base_layers'} columns={2} orderFunction={addSingleItem} orderIndex={1}>
-            </ShellForm>
-
-            <Divider />
-
-            <ShellForm ingredients={seasonings} currentIngredient={'seasonings'} columns={2} orderFunction={addMultipleItem} orderIndex={2}>
-            </ShellForm>
+            <IngredientForm ingredients={base_layers} currentIngredient={'base_layers'} columns={(isMobile ? 2 : 3)} orderFunction={addSingleItem} orderIndex={1}>
+            </IngredientForm>
 
             <Divider />
 
-            <ShellForm ingredients={mixins} currentIngredient={'mixins'} columns={2} orderFunction={addMultipleItem} orderIndex={3}> </ShellForm>
+            <IngredientForm ingredients={seasonings} currentIngredient={'seasonings'} columns={(isMobile ? 2 : 3)} orderFunction={addMultipleItem} orderIndex={2}>
+            </IngredientForm>
 
             <Divider />
 
-            <ShellForm ingredients={condiments} currentIngredient={'condiments'} columns={2} orderFunction={addMultipleItem} orderIndex={4}> </ShellForm>
+            <IngredientForm ingredients={mixins} currentIngredient={'mixins'} columns={(isMobile ? 2 : 3)} orderFunction={addMultipleItem} orderIndex={3}> </IngredientForm>
+
+            <Divider />
+
+            <IngredientForm ingredients={condiments} currentIngredient={'condiments'} columns={(isMobile ? 2 : 3)} orderFunction={addMultipleItem} orderIndex={4}> </IngredientForm>
 
 
           </Grid.Column>
         </Transition>
 
         <Transition visible={startOrder} animation='fade left' duration={500}>
-          <Grid.Column width={6}>
-            <Cart order={order} numberOfTacos={tacoNumber} price={price} />
+          <Grid.Column width={5}>
+            <Cart order={order} numberOfTacos={tacoNumber} price={price} isMobile={isMobile}/>
           </Grid.Column>
         </Transition>
 

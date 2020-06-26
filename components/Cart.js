@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { render } from 'react-dom'
+import '../style.css'
 
-import { Button, Container, Header, Divider, Grid, Segment, Icon, Form, Label, List } from "semantic-ui-react";
+import { Button, Container, Header, Divider, Grid, Segment, Icon, Form, Label, List, Menu } from "semantic-ui-react";
 
-const Cart = ({ order, numberOfTacos, price}) => {
+const Cart = ({ order, numberOfTacos, price, isMobile }) => {
 
   function displayItem() {
     return order.map(function (element, index) {
@@ -57,10 +58,10 @@ const Cart = ({ order, numberOfTacos, price}) => {
       )
     }})
   }
-
+  // className={!isMobile ? 'desktopCart' : ""}>
   return (
     <div>
-      <Segment>
+      <Segment className={!isMobile ? 'fixed' : ""}> 
         <Header as="h3">Cart</Header>
         <Divider />
         <List>

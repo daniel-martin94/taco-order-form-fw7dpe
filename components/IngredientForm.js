@@ -7,7 +7,7 @@ import questions from './questions'
 import { Button, Header, Divider, Grid, Segment, Form, Radio, Icon, Label, Checkbox } from "semantic-ui-react";
 
 
-const ShellForm = ({ currentIngredient, ingredients, columns, orderFunction, orderIndex }) => {
+const IngredientForm = ({ currentIngredient, ingredients, columns, orderFunction, orderIndex }) => {
 
   const [currentSelection, setSelection] = useState("")
   const [checked, checkToggle] = useState(false)
@@ -93,4 +93,4 @@ return (
 }
 
 
-export default ShellForm
+export default IngredientForm

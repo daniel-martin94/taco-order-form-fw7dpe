@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { render } from 'react-dom'
 import '../style.css'
 
-import { Button, Container, Header, Divider, Grid, Segment, Icon, Form, Label, List, Menu, Image, Transition } from "semantic-ui-react";
+import { Button, Header, Divider, Grid, Segment, Icon, Label, List } from "semantic-ui-react";
 
 const Cart = ({ order, numberOfTacos, price, isMobile, incrementTacoNumber, decrementTacoNumber, changeOrderState }) => {
 

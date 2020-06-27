@@ -134,7 +134,7 @@ console.log(startOrder)
       <Header as="h2">{title}</Header>
       <Divider />
       <Grid columns={2} stackable>
-      <Transition visible={endOrder} animation='fade left' duration={1000}>
+      <Transition visible={endOrder} animation='fade right' duration={1000}>
           <div>
             <br />
             <p>

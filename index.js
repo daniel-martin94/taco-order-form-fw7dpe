@@ -20,9 +20,11 @@ import './style.css';
 
 function App() {
   const [startOrder, toggleOrder] = useState(false);
+  const [endOrder, toggleEnd] = useState(false);
   const [order, setOrder] = useState([])
   const [ingredients, setIngredients] = useState([shells, base_layers, seasonings, mixins, condiments])
   const [title, changeTitle] = useState("Welcome to Dream Taco Shop!");
+
   const changeOrderState = () => toggleOrder(!startOrder)
   const [tacoNumber, setTacoNumber] = useState(1)
   const [price, setPrice] = useState(0)
@@ -31,7 +33,6 @@ function App() {
   const [isMobile, toggleMobile] = useState()
   const [width, setWidth] = useState(window.innerWidth);
 
-  const changeOrderState = () => toggleOrder(!startOrder)
   const incrementTacoNumber = () => setTacoNumber(tacoNumber + 1)
   const decrementTacoNumber = () => setTacoNumber(tacoNumber - 1)
 
@@ -125,13 +126,22 @@ useEffect(() => {
       toggleMobile(false)
     }
 }, [width]);
-
+console.log(order)
+console.log(startOrder)
   return (
     <Container>
       <br />
       <Header as="h2">{title}</Header>
       <Divider />
       <Grid columns={2} stackable>
+      <Transition visible={endOrder} animation='fade left' duration={1000}>
+          <div>
+            <br />
+            <p>
+              Thank you for your order!
+          </p>
+          </div>
+        </Transition>
         <Transition visible={startOrder} animation='fade left' duration={1000}>
           <Grid.Column width={11}>
 
@@ -151,11 +161,14 @@ useEffect(() => {
 
         <Transition visible={startOrder} animation='fade left' duration={500}>
           <Grid.Column width={5}>
-            <Cart order={order} numberOfTacos={tacoNumber} incrementTacoNumber={incrementTacoNumber} decrementTacoNumber={decrementTacoNumber} price={price} isMobile={isMobile}/>
+            <Cart order={order} numberOfTacos={tacoNumber} incrementTacoNumber={incrementTacoNumber} decrementTacoNumber={decrementTacoNumber} price={price} isMobile={isMobile} changeOrderState={()=> {
+              toggleEnd(!endOrder)
+              toggleOrder(!startOrder)
+            }}/>
           </Grid.Column>
         </Transition>
 
-        <Transition visible={!startOrder} animation='fade left' duration={1000}>
+        <Transition visible={(!startOrder && order.length == 0)} animation='fade left' duration={1000}>
           <div>
             <br />
             <p>

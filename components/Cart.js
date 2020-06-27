@@ -4,7 +4,7 @@ import '../style.css'
 
 import { Button, Container, Header, Divider, Grid, Segment, Icon, Form, Label, List, Menu, Image, Transition } from "semantic-ui-react";
 
-const Cart = ({ order, numberOfTacos, price, isMobile, incrementTacoNumber, decrementTacoNumber }) => {
+const Cart = ({ order, numberOfTacos, price, isMobile, incrementTacoNumber, decrementTacoNumber, changeOrderState }) => {
 
   var cartTitles = {
     0: "Shell",
@@ -83,21 +83,21 @@ const Cart = ({ order, numberOfTacos, price, isMobile, incrementTacoNumber, decr
           <List.Item>
             <Grid>
               <Grid.Row columns={2}>
-              <Grid.Column floated='left'>
-                <div style={{ fontWeight: 'bold' }}>Number of Tacos: {numberOfTacos}</div>
-              </Grid.Column>
-              <Grid.Column floated="right">
-                <Button.Group>
-                  <Button compact icon onClick={decrementTacoNumber} disabled={numberOfTacos <= 1 ? true : false}>
-                    <Icon name='minus' />
-                  </Button>
-                  {' '}
-                  <Button compact icon onClick={incrementTacoNumber}>
-                    <Icon name='plus' />
-                  </Button>
-                </Button.Group>
-              </Grid.Column>    
-              </Grid.Row>   
+                <Grid.Column floated='left'>
+                  <div style={{ fontWeight: 'bold' }}>Number of Tacos: {numberOfTacos}</div>
+                </Grid.Column>
+                <Grid.Column floated="right">
+                  <Button.Group>
+                    <Button compact icon onClick={decrementTacoNumber} disabled={numberOfTacos <= 1 ? true : false}>
+                      <Icon name='minus' />
+                    </Button>
+                    {' '}
+                    <Button compact icon onClick={incrementTacoNumber}>
+                      <Icon name='plus' />
+                    </Button>
+                  </Button.Group>
+                </Grid.Column>
+              </Grid.Row>
             </Grid>
 
           </List.Item>
@@ -115,16 +115,15 @@ const Cart = ({ order, numberOfTacos, price, isMobile, incrementTacoNumber, decr
           </Grid.Column>
         </Grid>
       </Segment>
-      
-      <Transition visible={(order[0] != undefined && order[1] != undefined)} animation='fade left' duration={1000}>
-        <Button
-                floated='right'
-                content="Place Order"
-                size="medium"
-                icon="arrow circle right"
-                labelPosition="right"
-        />
-      </Transition>
+      <Button
+        floated='right'
+        content="Place Order"
+        size="medium"
+        icon="arrow circle right"
+        onClick={changeOrderState}
+        labelPosition="right"
+        disabled={(order[0] === undefined || order[1] === undefined)}
+      />
     </div>
   )
 }

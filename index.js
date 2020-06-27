@@ -4,7 +4,7 @@ import GenericForm from './components/GenericForm';
 import TacoNumberForm from './components/TacoNumberForm'
 import IngredientForm from './components/IngredientForm';
 import Cart from './components/Cart';
-import { Button, Container, Header, Divider, Grid, Segment, Transition } from "semantic-ui-react";
+import { Button, Container, Header, Divider, Grid, Segment, Transition, Image } from "semantic-ui-react";
 
 //Ingredients
 import { shells } from './ingredients/shells.json'
@@ -135,12 +135,14 @@ console.log(startOrder)
       <Divider />
       <Grid columns={2} stackable>
       <Transition visible={endOrder} animation='fade right' duration={1000}>
-          <div>
-            <br />
-            <p>
+          <Container textAlign="center">
+          <br></br>
+            <Header as="h3">
               Thank you for your order!
-          </p>
-          </div>
+          </Header>
+          <Image src="https://media3.giphy.com/media/kELXPGMOmmCLxhMr6R/giphy.gif" size="medium" centered>
+          </Image>
+          </Container>
         </Transition>
         <Transition visible={startOrder} animation='fade left' duration={1000}>
           <Grid.Column width={11}>

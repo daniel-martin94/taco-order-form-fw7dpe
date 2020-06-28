@@ -4,7 +4,7 @@ This is the offical code repo for the 'Dream Taco Shop' a simple and elegant ord
 
 This application built using [React](https://reactjs.org/) and a [community driven taco api](https://github.com/sinker/tacofancy)
   
-  ### Prerequisites
+### Prerequisites
 In order to run this project locally, you should have the following installed:
 
 - [NPM](https://www.npmjs.com/)
@@ -12,7 +12,7 @@ In order to run this project locally, you should have the following installed:
 Note:
 - Be sure to install [Semantic](https://react.semantic-ui.com) in order to get all the styling, animations, and components
   
-  ### Installation & Startup
+### Installation & Startup
 1) Fork this repo
 2) Clone the fork
 3) Install Dependencies with the command: `npm install`

@@ -19,7 +19,7 @@ Note:
 4) Visit http://localhost:3000
 
 Start Building! :rainbow: :taco:
-//http://taco-randomizer.herokuapp.com/
+
 [Working Demo](https://taco-order-form-fw7dpe.stackblitz.io)
 
 [StackBlitz](https://stackblitz.com/edit/taco-order-form-fw7dpe)

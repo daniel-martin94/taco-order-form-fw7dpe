@@ -126,8 +126,13 @@ useEffect(() => {
       toggleMobile(false)
     }
 }, [width]);
-console.log(order)
-console.log(startOrder)
+
+//Scroll to top for mobile
+useEffect(() => {
+    if (endOrder && isMobile) {
+      window.scrollTo(0,0);
+    }
+}, [endOrder]);
   return (
     <Container>
       <br />

@@ -45,7 +45,9 @@ const IngredientForm = ({ currentIngredient, ingredients, columns, orderFunction
                     {(type == 'shells' || type == 'base_layers') && 
                       
                       <div className="ui radio checkbox">
-                        <input type="radio" value={e.id}
+                        <input type="radio" 
+                        key={e.id}
+                        value={e.id}
                         checked={e.id === currentSelection} 
                         onChange={() => { 
                         setSelection(e.id)

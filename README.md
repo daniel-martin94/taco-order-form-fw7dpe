@@ -2,7 +2,7 @@
 
 This is the offical code repo for the 'Dream Taco Shop' a simple and elegant order form for building and your dream tacos.
 
-This application built using [React](https://reactjs.org/) and the a [community driven taco api](https://github.com/sinker/tacofancy)
+This application built using [React](https://reactjs.org/) and a [community driven taco api](https://github.com/sinker/tacofancy)
   
   ### Prerequisites
 In order to run this project locally, you should have the following installed:

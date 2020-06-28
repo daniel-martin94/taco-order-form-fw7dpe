@@ -9,6 +9,8 @@ In order to run this project locally, you should have the following installed:
 
 - [NPM](https://www.npmjs.com/)
 
+Note:
+- Be sure to install [Semantic] (https://react.semantic-ui.com/) in order to get all the styling, animations, and components
   
   ### Installation & Startup
 1) Fork this repo
